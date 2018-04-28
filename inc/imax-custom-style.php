@@ -163,7 +163,7 @@
 			
 			echo '.colored-drop .nav-container ul ul a, .colored-drop ul.nav-container ul a, .colored-drop ul.nav-container ul, .colored-drop .nav-container ul ul {background-color: '.$primary_color.';}';				
 			
-			echo '.header-iconwrap .header-icons.woocart > a .cart-counts {background-color:'.$primary_color.';}';
+			echo '.header-iconwrap .header-icons.woocart > a .cart-counts, .woocommerce ul.products li.product .button {background-color:'.$primary_color.';}';
 			
 			echo '.header-icons.woocart .cartdrop.widget_shopping_cart.nx-animate { border-top-color:'.$primary_color.';}';
 			

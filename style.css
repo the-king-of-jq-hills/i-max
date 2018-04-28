@@ -2245,10 +2245,6 @@ footer.entry-meta {
 	color: #FFF;
 }
 
-.woocommerce-page .site-content {
-	padding: 0% 32px;	
-}
-
 .woocommerce-page .product {
 	padding-top: 32px;
 }
@@ -5928,8 +5924,6 @@ Menu item highlight style
 	position: relative;
 }
 
-
-
 .woocommerce-ordering select {
     padding:3px;
     margin: 0;
@@ -5990,8 +5984,12 @@ Menu item highlight style
 	display: block;
 	width: 100%;
 	margin: 0px;
-	padding: 0px;
 	padding: 16px;
+}
+
+.woocommerce .related.products .star-rating {
+    top: 24px;
+    left: 24px;
 }
 
 .related.products {
@@ -6039,8 +6037,6 @@ Menu item highlight style
 	font-size: 12px;
 	z-index: 3002;
 }
-
-.navbar .widget_shopping_cart_content {}
 
 .navbar .widget_shopping_cart_content ul.cart_list {
 	display: block;
@@ -6188,6 +6184,15 @@ Menu item highlight style
 	color: #FFF;
 }
 
+@media (max-width: 480px) {
+	.woocommerce ul.products[class*="columns-"] li.product, 
+	.woocommerce-page ul.products[class*="columns-"] li.product {
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
 .woocommerce ul.products li.product .onsale {
     right: 0px;
     left: auto;
@@ -6202,59 +6207,134 @@ Menu item highlight style
     margin: 0px !important;
 }
 
-
-
-
-.woocommerce ul.products li.product .button, 
-.woocommerce ul.products li.product .button:visited {
-    transition-property: all;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0s;
-    background-color: #373737;
-    color: #FFF;
+.woocommerce .related.products li.product .onsale {
+    right: 16px;
 }
 
-.woocommerce ul.products button.tm-woocompare-button, 
-.woocommerce ul.products .woocommerce button.tm-woocompare-button {
-    display: -ms-inline-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-content: stretch;
-    -ms-flex-line-pack: stretch;
-    align-content: stretch;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+.woocommerce #respond input#submit,
+.woocommerce #respond input#submit:visited,
+.woocommerce a.button, 
+.woocommerce a.button:visited, 
+.woocommerce button.button,
+.woocommerce button.button:visited,
+.woocommerce input.button,
+.woocommerce input.button:visited {
+	transition-property: all;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;		
+	background-color: #373737;
+	color: #FFFFFF;
+	margin-right: 6px;
 }
 
-.woocommerce ul.products button.tm-woowishlist-button, 
-.woocommerce ul.products .woocommerce button.tm-woowishlist-button {
-    display: -ms-inline-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-content: stretch;
-    -ms-flex-line-pack: stretch;
-    align-content: stretch;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+
+.woocommerce ul.products li.product button.tm-woocompare-button, 
+.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button,
+.woocommerce ul.products li.product button.tm-woowishlist-button, 
+.woocommerce ul.products li.product .woocommerce button.tm-woowishlist-button {
+	display: block;
+	position: absolute;
+	right: 6px;
+	margin-right: 0px;
+	top: 48px;
+	z-index: 20;
+	
+	content: " ";
+	width: 36px;
+	height: 36px;
+	background: transparent;
+	overflow: hidden;
+	text-indent: -1000px;
+	border: 1px solid #373737;
+	opacity: 0.48;
+}
+
+.woocommerce ul.products li.product button.tm-woocompare-button:hover, 
+.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button:hover,
+.woocommerce ul.products li.product button.tm-woowishlist-button:hover, 
+.woocommerce ul.products li.product .woocommerce button.tm-woowishlist-button:hover {
+	background: transparent!important;
+	opacity: 1;
+}
+
+.woocommerce ul.products li.product button.tm-woocompare-button:before {
+	position: absolute;
+	display: block;
+	height: 36px;
+	width: 36px;
+	z-index: 1;
+	left: -1px;
+	top: 0px;
+	color: #373737;
+	line-height: 36px;
+	text-align: center;
+	font-family: FontAwesome;
+	text-indent: 0px;
+	content: "\f0ec";
+}
+.woocommerce ul.products li.product button.tm-woowishlist-button:before {
+	position: absolute;
+	display: block;
+	height: 36px;
+	width: 36px;
+	z-index: 1;
+	left: -1px;
+	top: 0px;
+	color: #333;
+	line-height: 36px;
+	text-align: center;
+	font-family: FontAwesome;
+	text-indent: 0px;
+	content: "\f004";
+}
+
+.woocommerce ul.products li.product button.tm-woocompare-button:hover::before {
+	background: transparent;
+}
+.woocommerce ul.products li.product button.tm-woowishlist-button:hover::before {
+	background: transparent;	
+}
+
+.woocommerce ul.products li.product button.tm-woocompare-button, 
+.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button {
+	top: 88px;
+}
+
+.woocommerce ul.products li.product button.tm-woocompare-button.added, 
+.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button.added,
+.woocommerce ul.products li.product button.tm-woowishlist-button.added, 
+.woocommerce ul.products li.product .woocommerce button.tm-woowishlist-button.added {
+	opacity: 1;
+	color: #F00;
+	border-color: #F00;	
+}
+
+.woocommerce ul.products li.product button.tm-woocompare-button.added:before {
+	color: #F00;	
+}
+.woocommerce ul.products li.product button.tm-woowishlist-button.added:before {
+	color: #F00;	
+}
+
+.woocommerce .related.products li.product button.tm-woocompare-button, 
+.woocommerce .related.products li.product .woocommerce button.tm-woocompare-button,
+.woocommerce .related.products li.product button.tm-woowishlist-button, 
+.woocommerce .related.products li.product .woocommerce button.tm-woowishlist-button {
+	right: 22px;
+}
+
+.woocommerce.single-product button.tm-woocompare-button,
+.woocommerce.single-product button.tm-woowishlist-button,
+.woocommerce.single-product button.tm-woocompare-button:visited,
+.woocommerce.single-product button.tm-woowishlist-button:visited {
+	background: transparent;
+	border: 1px solid #373737;
+	color: #373737;
+}
+
+.woocommerce.single-product button.tm-woocompare-button:hover,
+.woocommerce.single-product button.tm-woowishlist-button:hover {
+	background-color: #373737;
+	color: #FFFFFF;	
 }
