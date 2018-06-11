@@ -7,15 +7,21 @@
  * @package  i-max
  * @since i-max 1.0
  */
+$no_footer = "";
+if ( function_exists( 'rwmb_meta' ) ) {
+	$no_footer = rwmb_meta('imax_no_footer');
+}   
 ?>
 
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
+        	<?php if( $no_footer != 1 ) : ?>
         	<div class="footer-bg clearfix">
                 <div class="widget-wrap">
                     <?php get_sidebar( 'main' ); ?>
                 </div>
 			</div>
+            <?php endif; ?> 
 			<div class="site-info">
                 <div class="copyright">
                 	<?php esc_attr_e( 'Copyright &copy;', 'i-max' ); ?>  <?php bloginfo( 'name' ); ?>

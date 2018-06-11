@@ -54,30 +54,30 @@ function imax_ibanner_slider () {
 	
 	$slides_preset = array (
         array(
-            'itrans_slide_title' => esc_attr__( '<span class="themecolor">Drag & Drop</span> Ready Layouts', 'i-amaze' ),
-            'itrans_slide_desc' => esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-amaze' ),
-            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-amaze' ),
+            'itrans_slide_title' => esc_attr__( '<span class="themecolor">Drag & Drop</span> Ready Layouts', 'i-max' ),
+            'itrans_slide_desc' => esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-max' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-max' ),
             'itrans_slide_linkurl' => esc_url('http://www.templatesnext.org/icreate/?page_id=541'),
             'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide1.jpg' ),
         ),
         array(
-            'itrans_slide_title' => esc_attr__( 'Responsive & Touch Ready', 'i-amaze' ),
-            'itrans_slide_desc' => esc_attr__( 'i-MAX is 100% responsive and touch ready.', 'i-amaze' ),
-            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-amaze' ),
+            'itrans_slide_title' => esc_attr__( 'SiteOrigin Page Builder & Elementor', 'i-max' ),
+            'itrans_slide_desc' => esc_attr__( 'Design Your Pages With Most Popular Page Builders', 'i-max' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-max' ),
             'itrans_slide_linkurl' => '',
             'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide2.jpg' ),
         ),
         array(
-            'itrans_slide_title' => esc_attr__( 'Portfolio, Testimonial, Services...', 'i-amaze' ),
-            'itrans_slide_desc' => esc_attr__( 'Create Sections Using Pagebuilder Or TemplatesNext Shortcodes', 'i-amaze' ),
-            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-amaze' ),
+            'itrans_slide_title' => esc_attr__( 'Portfolio, Testimonial, Services...', 'i-max' ),
+            'itrans_slide_desc' => esc_attr__( 'Create Sections Using Pagebuilder Or TemplatesNext Shortcodes', 'i-max' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-max' ),
             'itrans_slide_linkurl' => '',
             'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide3.jpg' ),
         ),
         array(
-            'itrans_slide_title' => esc_attr__( 'Easy to Customize', 'i-amaze' ),
-            'itrans_slide_desc' => esc_attr__( 'Customize Your Pages With Page Options.', 'i-amaze' ),
-            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-amaze' ),
+            'itrans_slide_title' => esc_attr__( 'Exclusive WooCommerce Features', 'i-max' ),
+            'itrans_slide_desc' => esc_attr__( 'Many WooCommerce Features Like Shopping Cart, Product Listings, Etc.', 'i-max' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-max' ),
             'itrans_slide_linkurl' => '',
             'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide4.jpg' ),
         ),
@@ -93,6 +93,9 @@ function imax_ibanner_slider () {
 			$slide_linktext = esc_attr(get_theme_mod('itrans_slide'.$counter.'_linktext', $slides_preset[$slideno]['itrans_slide_linktext'] ));
 			$slide_linkurl = esc_url(get_theme_mod('itrans_slide'.$counter.'_linkurl', $slides_preset[$slideno]['itrans_slide_linkurl'] ));
 			$slide_image = esc_url(get_theme_mod('itrans_slide'.$counter.'_image', $slides_preset[$slideno]['itrans_slide_image'] ));
+			
+			$slider_height = esc_attr(get_theme_mod('slider_height', 100 ));
+			$slider_reduct = esc_attr(get_theme_mod('slider_reduction', 260 ));						
 			
 			$slider_image_id = imax_get_attachment_id_from_url( $slide_image );			
 			$slider_resized_image = wp_get_attachment_image( $slider_image_id, "imax-slider-thumb" );			
@@ -135,7 +138,7 @@ function imax_ibanner_slider () {
 	
 	if( count( $arrslidestxt ) > 0 ){
 		echo '<div class="ibanner '.$banner_overlay.' '.$text_alignment.'">';
-		echo '	<div id="da-slider" class="da-slider" role="banner" data-slider-speed="'.$sliderscpeed.'" data-slider-parallax="'.$itrans_sliderparallax.'">';
+		echo '	<div id="da-slider" class="da-slider" role="banner" data-slider-speed="'.$sliderscpeed.'" data-slider-height="'.$slider_height.'" data-slider-reduct="'.$slider_reduct.'" data-slider-parallax="'.$itrans_sliderparallax.'">';
 			
 		foreach ( $arrslidestxt as $slidetxt ) :
 			echo '<div class="nx-slider">';	

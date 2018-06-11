@@ -4,7 +4,7 @@ Theme URI: http://www.templatesnext.org/i-max/
 Author: templatesnext team
 Author URI: http://templatesnext.org/
 Description: i-max is a responsive, retina ready multipurpose WordPress theme for business, portfolio, personal or blogs. i-max is packed with many premium features like boxed/wide layout, unlimited color, custom background, multiple blog layout, social media links, custom slider and much more. i-max also comes with a plugin “TemplatesNext Toolkit” to give you power to create your own layout using rows and columns, services, multiple style of portfolio, custom blog/post/news layout, testimonial, call to act etc. it also lets you add custom recent post listing, carousel and portfolio carousels. Video tutorials available at : http://templatesnext.org/imax/?page_id=659 and https://www.youtube.com/watch?v=b0cqdFTwmm8
-Version: 1.2.8
+Version: 1.3.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: One-Column,Two-Columns,Right-Sidebar,Custom-Colors,Custom-Menu,Featured-Image-Header,Featured-Images,Flexible-Header,Full-Width-Template,Microformats,Post-Formats,Sticky-Post,Theme-Options,Threaded-Comments,Translation-Ready,Holiday
@@ -4775,10 +4775,6 @@ nav.navigation .nav-links a:visited {
 	padding-left: 12px;
 }
 
-.woocommerce section.related.products ul.products li.product:last-child, 
-.woocommerce-page section.related.products ul.products li.product:last-child {
-}
-
 .woocommerce span.onsale {
 	top: 32px;
 	left: 8px;
@@ -5014,7 +5010,7 @@ nav.navigation .nav-links a:visited {
 	width: 240px;
 }
 
-
+.elementor-page .site-main,
 .tx-nopad .site-main {
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -5818,7 +5814,11 @@ Menu item highlight style
 	border-top: 2px solid #95C837; /* variable color */
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
-	opacity: 0px;	
+	opacity: 0px;
+	transition-property: all;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;	
 }
 
 .fixeddiv .header-icons.woocart .cartdrop.widget_shopping_cart.nx-animate {
@@ -6113,11 +6113,6 @@ Menu item highlight style
 	padding: 6px 16px;
 }
 
-.woocommerce h2 {
-	font-weight: 500;
-	font-size: 24px;
-}
-
 .woocommerce ul.products li.product .price del .woocommerce-Price-amount, 
 .woocommerce-page ul.products li.product .price del .woocommerce-Price-amount {
 	font-size: 12px;
@@ -6180,10 +6175,6 @@ Menu item highlight style
 	box-shadow: 0 0 45px rgba(0,0,0,0.12) inset;	
 }
 
-.nx-fullscreen .site-header:not(.fixeddiv) .header-iconwrap .header-icons.woocart > a {
-	color: #FFF;
-}
-
 @media (max-width: 480px) {
 	.woocommerce ul.products[class*="columns-"] li.product, 
 	.woocommerce-page ul.products[class*="columns-"] li.product {
@@ -6228,113 +6219,257 @@ Menu item highlight style
 	margin-right: 6px;
 }
 
+.navbar .widget_shopping_cart_content > p.buttons > a.button.wc-forward,
+.navbar .widget_shopping_cart_content > p.buttons > a.button.checkout {
+	margin-right: 8px;
+	padding: 6px 12px;
+	color: #FFFFFF;
+}
 
-.woocommerce ul.products li.product button.tm-woocompare-button, 
-.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button,
-.woocommerce ul.products li.product button.tm-woowishlist-button, 
-.woocommerce ul.products li.product .woocommerce button.tm-woowishlist-button {
-	display: block;
+/* Customizer CSS ends */
+
+.nx-preloader .nx-ispload {
+	-webkit-animation: tx-hide-preload 2.0s forwards;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-delay: 10s;
+	animation: tx-hide-preload 2.0s forwards;
+	animation-iteration-count: 1;
+	animation-delay: 10s;
+}
+@-webkit-keyframes tx-hide-preload {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: auto;
+	height: 0px;
+  }
+}
+@keyframes tx-hide-preload {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: auto;
+	height: 0px;
+  }
+}
+
+/* Menu Item UPPERCASE */
+.nx-nav-uppercase ul.nav-menu > li > a {
+	text-transform: uppercase;
+}
+
+/* Shoppingcart and Site Search */
+.nx-nav-boxedicons .topsearch form.search-form label::before {
 	position: absolute;
-	right: 6px;
-	margin-right: 0px;
-	top: 48px;
-	z-index: 20;
+	font-size: 20px;
+	line-height: 32px;
+	font-weight: 600;
+	top: 0px;
+	left: 0px;
+	margin-top: 2px;
+	content: '\f400';
+	font-family: genericons;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	width: 32px;
+	text-align: center;
+	z-index: 1003;
+	color: #373737;
+}
+
+.nx-nav-boxedicons .site-header.fixeddiv .topsearch form.search-form label::before {
+	margin-top: 0px;
+}
+
+.nx-nav-boxedicons .site-header .searchico {
+	display: none;
+}
+
+.nx-nav-boxedicons .topsearch input.search-field {
+    width: 32px;
+	height: 32px;
+	line-height: 32px;
+    padding-left: 32px;
+    border: 0px solid #dddddd;
+	background-color: #dddddd;
+	color: #dddddd;
+	border-radius: 2px;
+	padding-right: 0px;
+	margin-top: 2px;
 	
-	content: " ";
-	width: 36px;
-	height: 36px;
-	background: transparent;
-	overflow: hidden;
-	text-indent: -1000px;
-	border: 1px solid #373737;
-	opacity: 0.48;
+	position: relative;
+	z-index: 1002;	
 }
 
-.woocommerce ul.products li.product button.tm-woocompare-button:hover, 
-.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button:hover,
-.woocommerce ul.products li.product button.tm-woowishlist-button:hover, 
-.woocommerce ul.products li.product .woocommerce button.tm-woowishlist-button:hover {
-	background: transparent!important;
-	opacity: 1;
-}
-
-.woocommerce ul.products li.product button.tm-woocompare-button:before {
-	position: absolute;
-	display: block;
-	height: 36px;
-	width: 36px;
-	z-index: 1;
-	left: -1px;
-	top: 0px;
-	color: #373737;
-	line-height: 36px;
-	text-align: center;
-	font-family: FontAwesome;
-	text-indent: 0px;
-	content: "\f0ec";
-}
-.woocommerce ul.products li.product button.tm-woowishlist-button:before {
-	position: absolute;
-	display: block;
-	height: 36px;
-	width: 36px;
-	z-index: 1;
-	left: -1px;
-	top: 0px;
-	color: #333;
-	line-height: 36px;
-	text-align: center;
-	font-family: FontAwesome;
-	text-indent: 0px;
-	content: "\f004";
-}
-
-.woocommerce ul.products li.product button.tm-woocompare-button:hover::before {
-	background: transparent;
-}
-.woocommerce ul.products li.product button.tm-woowishlist-button:hover::before {
-	background: transparent;	
-}
-
-.woocommerce ul.products li.product button.tm-woocompare-button, 
-.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button {
-	top: 88px;
-}
-
-.woocommerce ul.products li.product button.tm-woocompare-button.added, 
-.woocommerce ul.products li.product .woocommerce button.tm-woocompare-button.added,
-.woocommerce ul.products li.product button.tm-woowishlist-button.added, 
-.woocommerce ul.products li.product .woocommerce button.tm-woowishlist-button.added {
-	opacity: 1;
-	color: #F00;
-	border-color: #F00;	
-}
-
-.woocommerce ul.products li.product button.tm-woocompare-button.added:before {
-	color: #F00;	
-}
-.woocommerce ul.products li.product button.tm-woowishlist-button.added:before {
-	color: #F00;	
-}
-
-.woocommerce .related.products li.product button.tm-woocompare-button, 
-.woocommerce .related.products li.product .woocommerce button.tm-woocompare-button,
-.woocommerce .related.products li.product button.tm-woowishlist-button, 
-.woocommerce .related.products li.product .woocommerce button.tm-woowishlist-button {
-	right: 22px;
-}
-
-.woocommerce.single-product button.tm-woocompare-button,
-.woocommerce.single-product button.tm-woowishlist-button,
-.woocommerce.single-product button.tm-woocompare-button:visited,
-.woocommerce.single-product button.tm-woowishlist-button:visited {
-	background: transparent;
-	border: 1px solid #373737;
+.nx-nav-boxedicons .topsearch input.search-field:focus {
+	padding-left: 32px;
+	padding-right: 16px;
+    width: 160px;
+    border: 1px solid #e7e7e7;
 	color: #373737;
 }
 
-.woocommerce.single-product button.tm-woocompare-button:hover,
-.woocommerce.single-product button.tm-woowishlist-button:hover {
+.nx-nav-boxedicons .site-header .navbar .header-icons.woocart {
+	margin-right: 0px;
+	margin-top: 30px;
+}
+
+.nx-nav-boxedicons .site-header.fixeddiv .navbar .header-icons.woocart {
+	margin-top: 14px;
+}
+
+.nx-nav-boxedicons .header-iconwrap {
+	margin-right: 6px;
+	padding-right: 0px;
+}
+
+.nx-nav-boxedicons .header-icons.woocart > a {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.nx-nav-boxedicons .header-inwrap .navbar .woocart > a {
+	padding-right: 0px;
+	margin-top: 0px;
+}
+
+.nx-nav-boxedicons .site-header .header-icons > a > span.genericon {
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	margin-right: 0px;
+	margin-top: -2px;
+}
+
+.nx-nav-boxedicons .site-header .header-icons > a > span.genericon:before {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
 	background-color: #373737;
-	color: #FFFFFF;	
+	color: #ffffff;
+	border-radius: 2px;
+}
+
+.nx-nav-boxedicons .navbar .woocart span.cart-counts {
+    left: 18px;
+    top: 10px;
+}
+
+.nx-nav-boxedicons .header-icons.woocart .cartdrop.widget_shopping_cart.nx-animate {
+	border-top-width: 0px;
+	top: 30px;
+	border-bottom: 3px solid #373737;
+}
+
+/* Fullscreen transparent Header */
+.site-header .trans-logo {
+	display: none;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .site-title,
+.nx-fullscreen .site-header:not(.fixeddiv) .site-description {
+	color: #FFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .trans-logo {
+	display: inline-block;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .normal-logo {
+	display: none;
+}
+
+
+.nx-fullscreen .site-header:not(.fixeddiv) ul.nav-container > li > a,
+.nx-fullscreen .site-header:not(.fixeddiv) .nav-container > ul > li > a {
+	color: #FFFFFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .header-iconwrap .header-icons.woocart > a {
+	color: #FFF;
+}
+
+.nx-fullscreen .site .headerwrap {
+	background:  rgba(0,0,0,0.1);
+	background: transparent;
+	position: relative;
+	height: 0px;
+	min-height: 0px;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	background-color: rgba(0,0,0,0.1);
+	min-height: 88px;
+	border-bottom: 1px solid rgba(0,0,0,0.0);
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .nav-container .nav-menu > li > a,
+.nx-fullscreen .site-header:not(.fixeddiv) .nav-container .nav-menu > li > a:visited {
+	color: #FFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .search-field,
+.nx-fullscreen .site-header:not(.fixeddiv) .search-field:focus {
+	color: #FFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .searchico:before {
+	color: #FFF;
+}
+
+/* Elementor Templates */
+.tx-nopad .hentry,
+.nx-full-width .hentry,
+.elementor-page .hentry {
+    padding: 0px;
+}
+.tx-nopad .entry-header,
+.nx-full-width .entry-header,
+.elementor-page .entry-header {
+	margin-bottom: 0px;
+}
+.tx-nopad .site-main,
+.nx-full-width .site-main,
+.elementor-page .site-main {
+    padding-top: 0px;
+	padding-bottom: 0px;
+}
+.tx-nopad .entry-meta,
+.nx-full-width .entry-meta,
+.elementor-page .entry-meta {
+	margin: 0px;
+}
+.entry-content a.elementor-button,
+.entry-content a.elementor-button:visited {
+	color: #ffffff;
+}
+
+/* full width template */
+.nx-full-width .site .site-main {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	max-width: 100%;
+}
+
+.nx-full-width .site .site-main .content-area {
+	margin: 0px;
+	padding: 0px;
+}
+
+.nx-full-width .site .site-main .content-area .entry-header {
+	display: none;
+}
+
+.tx-noubar .utilitybar {
+	display: none;
 }

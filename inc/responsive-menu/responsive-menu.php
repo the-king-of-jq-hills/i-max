@@ -44,7 +44,7 @@ function imax_menu() {
             </div>
 		</div>
 
-		<div id="wprmenu_menu" class="wprmenu_levels <?php echo esc_attr(get_theme_mod('position', 'left')); ?> wprmenu_custom_icons">
+		<div id="wprmenu_menu" class="wprmenu_levels <?php echo esc_attr(get_theme_mod('position', 'top')); ?> wprmenu_custom_icons">
 			<?php if( get_theme_mod('search_box', 'below_menu') == 'above_menu' ) { ?> 
 			<div class="wpr_search">
 				<?php echo tx_search_form(); ?>

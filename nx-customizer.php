@@ -135,6 +135,29 @@ function imax_add_panels_and_sections( $wp_customize ) {
         'priority' => 130,
     ));	
 	
+	
+	
+	$wp_customize->add_section('nxtopbar', array(
+        'title'    => __('Topbar Options', 'i-max'),
+        'description' => '',
+        'priority' => 130,
+    ));
+	
+    $wp_customize->add_section('nxheader', array(
+        'title'    => __('Header Options', 'i-max'),
+        'description' => '',
+        'priority' => 130,
+    ));	
+	
+    $wp_customize->add_section('nxfooter', array(
+        'title'    => __('Footer Options', 'i-max'),
+        'description' => '',
+        'priority' => 130,
+    ));	
+	
+	
+		
+	
     $wp_customize->add_section('social', array(
         'title'    => __('Social Links', 'i-max'),
         'description' => __('Insert full URL of your social link including http:// replacing #, <br /><b>Empty the field to hide the icon.</b>', 'i-max'),
@@ -226,7 +249,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'top_phone',
         'label'    => __( 'Phone Number', 'i-max' ),
-        'section'  => 'basic',
+        'section'  => 'nxtopbar',
         'default'  => '1-000-123-4567',
         'priority' => 1,
 		'description' => __( 'Phone number that appears on top bar.', 'i-max' ),
@@ -237,7 +260,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'pre_loader',
 		'label'       => __( 'Turn ON Page Preloader', 'i-max' ),
 		'description' => __( 'Turn ON/OFF loding animation before page load', 'i-max' ),
-		'section'     => 'basic',
+		'section'     => 'layout',
 		'default'     => 1,		
 		'priority'    => 3,
 	);		
@@ -246,7 +269,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'top_email',
         'label'    => __( 'Email Address', 'i-max' ),
-        'section'  => 'basic',
+        'section'  => 'nxtopbar',
         'default'  => 'email@i-create.com',
         'priority' => 1,
 		'description' => __( 'Email Id that appears on top bar.', 'i-max' ),		
@@ -257,10 +280,20 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'logo',
 		'label'       => __( 'Site header logo', 'i-max' ),
 		'description' => __( 'Width 280px, height 72px max. Upload logo for header', 'i-max' ),
-        'section'  => 'basic',
+        'section'  => 'title_tagline',
 		'default'     => get_template_directory_uri() . '/images/logo.png',
 		'priority'    => 1,
-	);	
+	);
+	
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'logo_trans',
+		'label'       => __( 'Transparent Logo', 'i-max' ),
+		'description' => __( 'Optional transparent logo for transparent header', 'i-max' ),
+        'section'  => 'title_tagline',
+        'default'  => '',		
+		'priority'    => 2,
+	);		
 	
 	$controls[] = array(
 		'type'        => 'color',
@@ -277,20 +310,51 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'topbar_bg',
 		'label'       => __( 'Primary Colored Topbar BG', 'i-max' ),
 		'description' => __( 'Turn off primary colored topbar background', 'i-max' ),
-		'section'     => 'layout',
-		'default'     => 0,		
+		'section'     => 'nxtopbar',
+		'default'     => 1,		
 		'priority'    => 3,
 	);	
 
+	/* Header controls */
 	$controls[] = array(
 		'type'        => 'switch',
 		'settings'     => 'nav_dropdown',
 		'label'       => __( 'Primary Colored Dropdown Menu', 'i-max' ),
 		'description' => __( 'Turn off primary colored dropdown Menu', 'i-max' ),
-		'section'     => 'layout',
-		'default'     => 0,		
+		'section'     => 'nxheader',
+		'default'     => 1,		
 		'priority'    => 3,
 	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'show_search',
+		'label'       => __( 'Show Search Icon', 'i-max' ),
+		'description' => __( 'Turn the search ON/OFF on main navigation', 'i-max' ),
+		'section'     => 'nxheader',
+		'default'     => 1,
+		'priority'    => 4,
+	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'boxed-icons',
+		'label'       => __( 'Boxed Menu Icons', 'i-craft' ),
+		'description' => __( 'The crat and search icons will appear as boxed', 'i-craft' ),
+		'section'     => 'nxheader',
+		'default'     => 0,			
+		'priority'    => 4,
+	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'nav_upper',
+		'label'       => __( 'Turn All Top Menu Item UPPERCASE', 'i-craft' ),
+		'description' => __( 'Turns all top navigation manu item to UPPERCASE', 'i-craft' ),
+		'section'     => 'nxheader',
+		'default'  => 0,		
+		'priority'    => 5,
+	);				
 			
 	$controls[] = array(
 		'type'        => 'radio-image',
@@ -327,16 +391,6 @@ function imax_custom_setting( $controls ) {
 	);
 	
 	$controls[] = array(
-		'type'        => 'switch',
-		'settings'     => 'show_search',
-		'label'       => __( 'Show Search Icon', 'i-max' ),
-		'description' => __( 'Turn the search ON/OFF on main navigation', 'i-max' ),
-		'section'     => 'layout',
-		'default'     => 1,
-		'priority'    => 4,
-	);	
-	
-	$controls[] = array(
 		'type'        => 'textarea',
 		'settings'     => 'extra_style',
 		'label'       => __( 'Additional style', 'i-max' ),
@@ -346,16 +400,13 @@ function imax_custom_setting( $controls ) {
 		'priority'    => 10,
 	);	
 
-	
-
-	
 	// social links
 	
     $controls[] = array(
         'type'     => 'text',
         'settings'  => 'itrans_social_facebook',
         'label'    => __( 'Facebook', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );	
@@ -364,7 +415,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_twitter',
         'label'    => __( 'Twitter', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );
@@ -373,7 +424,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_flickr',
         'label'    => __( 'Flickr', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );	
@@ -382,7 +433,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_feed',
         'label'    => __( 'RSS', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );	
@@ -391,7 +442,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_instagram',
         'label'    => __( 'Instagram', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );	
@@ -400,7 +451,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_googleplus',
         'label'    => __( 'Google Plus', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );	
@@ -409,7 +460,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_youtube',
         'label'    => __( 'YouTube', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );
@@ -418,7 +469,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_pinterest',
         'label'    => __( 'Pinterest', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
 	    );	
@@ -427,7 +478,7 @@ function imax_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'itrans_social_linkedin',
         'label'    => __( 'Linkedin', 'i-max' ),
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
         'default'  => '#',
         'priority' => 1,
     );		
@@ -466,7 +517,7 @@ function imax_custom_setting( $controls ) {
 		'settings'    => 'itrans_overlay',
 		'label'       => __( 'Text background', 'i-max' ),
 		'section'     => 'slidersettings',
-		'default'     => 'nxs-vinette',
+		'default'     => 'nxs-max19',
 		'priority'    => 10,
 		'choices'     => array(
 			'nxs-pattern'   => esc_attr__( 'Patterned Overlay', 'i-max' ),
@@ -493,6 +544,33 @@ function imax_custom_setting( $controls ) {
 			'nxs-right'  => esc_attr__( 'Right', 'i-max' ),
 		),
 	);		
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'slider_height',
+		'label'       => __( 'Slider Height (in %)', 'i-max' ),
+		'section'     => 'slidersettings',
+		'default'     => 100,
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '100',
+			'step' => '1',
+		),
+	);
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'slider_reduction',
+		'label'       => __( 'Reduction In px', 'i-max' ),
+		'section'     => 'slidersettings',
+		'description' => __( 'Amount of pixels to be reduced from % of slider height', 'i-max' ),		
+		'default'     => 260,
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '320',
+			'step' => '1',
+		),
+	);				
 	
 	// Slide 1
     $controls[] = array(
@@ -543,7 +621,7 @@ function imax_custom_setting( $controls ) {
         'settings'  => 'itrans_slide2_title',
         'label'    => __( 'Slide2 Title', 'i-max' ),
         'section'  => 'slide2',
-        'default'  => 'Live Edit With Customizer',
+        'default'  => 'SiteOrigin Page Builder & Elementor',
         'priority' => 1,
     );
 	$controls[] = array(
@@ -551,7 +629,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide2_desc',
 		'label'       => __( 'Slide2 Description', 'i-max' ),
 		'section'     => 'slide2',
-		'default'     => __( 'Access Customizer Settings Easily Using Customizer Shortcuts', 'i-max' ),
+		'default'     => __( 'Design Your Pages With Most Popular Page Builders', 'i-max' ),
 		'priority'    => 10,
 	);
     $controls[] = array(
@@ -629,7 +707,7 @@ function imax_custom_setting( $controls ) {
         'settings'  => 'itrans_slide4_title',
         'label'    => __( 'Slide4 Title', 'i-max' ),
         'section'  => 'slide4',
-        'default'  => 'Customize Your Pages',
+        'default'  => 'Exclusive WooCommerce Features',
         'priority' => 1,
     );
 	$controls[] = array(
@@ -637,7 +715,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide4_desc',
 		'label'       => __( 'Slide4 Description', 'i-max' ),
 		'section'     => 'slide4',
-		'default'     => __( 'Customize Your Pages With Page Options.', 'i-max' ),
+		'default'     => __( 'Many WooCommerce Features Like Shopping Cart, Product Listings, Etc.', 'i-max' ),
 		'priority'    => 10,
 	);
     $controls[] = array(
@@ -774,7 +852,7 @@ function imax_custom_setting( $controls ) {
 		'label' => __('Menu Open Direction', 'i-max'),
 		'description' => __('Select the direction from where menu will open.', 'i-max'),
 		'settings' => 'position',
-		'default' => 'left',
+		'default' => 'top',
 		'class' => 'mini',
 		'choices' => array('left' => 'Left','right' => 'Right', 'top' => 'Top' ),
 		'type' => 'select',

@@ -564,10 +564,14 @@ function imax_body_class( $classes ) {
 	
 	$imax_page_class = '';
 	$imax_page_nopad = 0;
+	$imax_no_ubar = '';	
+	$imax_trans_header = 0;			
 	  
 	if ( function_exists( 'rwmb_meta' ) ) { 
 		$imax_page_class = rwmb_meta('imax_page_class');
 		$imax_page_nopad = rwmb_meta('imax_page_nopad');
+		$imax_no_ubar = rwmb_meta('imax_no_ubar');
+		$imax_trans_header = rwmb_meta('imax_trans_header');		
 	}
 		
 	if ( ! is_multi_author() )
@@ -589,13 +593,25 @@ function imax_body_class( $classes ) {
 	if( get_theme_mod('pre_loader', 1) == 1 )
 		$classes[] = 'nx-preloader';
 		
-	if ( get_theme_mod('show_search', 1) == 1 )	
-	{
+	if ( get_theme_mod('show_search', 1) == 1 )	{
 		$classes[] = 'nx-show-search';
-	} else
-	{
+	} else 	{
 		$classes[] = 'nx-no-search';
 	}
+	
+	if( $imax_no_ubar == 1 )
+		$classes[] = 'tx-noubar';
+		
+	if( $imax_trans_header == 1 )
+		$classes[] = 'nx-fullscreen';
+		
+	// Boxed Navigation Icons
+	if( get_theme_mod('boxed-icons', 0) == 1 )
+		$classes[] = 'nx-nav-boxedicons';
+		
+	// Top Nav Menu Items to UPPERCASE
+	if( get_theme_mod('nav_upper', 0) == 1 )
+		$classes[] = 'nx-nav-uppercase';						
 
 	return $classes;
 }
@@ -788,7 +804,6 @@ function imax_theme_register_required_plugins() {
 * If the source is NOT from the .org repo, then source is also required.
 */
     $plugins = array(
-
          // This is an example of how to include a plugin from a private repo in your theme.
         array(
             'name' => 'Breadcrumb NavXT', // The plugin name.
@@ -799,12 +814,6 @@ function imax_theme_register_required_plugins() {
         array(
             'name' => 'TemplatesNext ToolKit', // The plugin name.
             'slug' => 'templatesnext-toolkit', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'Contact Form 7', // The plugin name.
-            'slug' => 'contact-form-7', // The plugin slug (typically the folder name).
             'required' => false, // If false, the plugin is only 'recommended' instead of required.
         ),
          // This is an example of how to include a plugin from a private repo in your theme.
@@ -825,7 +834,6 @@ function imax_theme_register_required_plugins() {
             'slug' => 'so-widgets-bundle', // The plugin slug (typically the folder name).
             'required' => false, // If false, the plugin is only 'recommended' instead of required.
         ),		
-
     );
 
     /**

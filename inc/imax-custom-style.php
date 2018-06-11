@@ -39,6 +39,19 @@
 
 			$primary_color = esc_attr(get_theme_mod('primary_color', '#dd3333'));
 			
+			global $post;	
+			$custom_page_color = '';
+			$topbar_bg_color = '';	
+			
+			if ( function_exists( 'rwmb_meta' ) ) {
+				$custom_page_color = rwmb_meta('imax_page_color', '');
+				$topbar_bg_color = rwmb_meta('imax_topbar_bg_color', '');
+			}			
+
+			if( !empty($custom_page_color) ) {
+				$primary_color = $custom_page_color;
+			}				
+			
 			$tx_body_font = get_theme_mod( 'body_font', $tx_body_font );
 			$tx_title_font = get_theme_mod( 'title_font', $tx_title_font );	
 			
@@ -169,9 +182,19 @@
 			
 			echo '.woocommerce ul.products li.product .onsale, .woocommerce span.onsale { background-color: '.$primary_color.'; color: #FFF; }';
 			
+			echo '.nx-nav-boxedicons .site-header .header-icons > a > span.genericon:before, ul.nav-menu > li.tx-heighlight:before, .woocommerce .nxowoo-box:hover a.button.add_to_cart_button {background-color: '.$primary_color.'}';			
+			
+			if( !empty($topbar_bg_color) ) {
+				echo '.site .utilitybar { background-color: '.$topbar_bg_color.'; color: #FFFFFF; border-bottom: 1px solid '.$topbar_bg_color.';}';
+				echo '.site .utilitybar .ubarinnerwrap .topphone { color: #FFFFFF;}';	
+				echo '.site .utilitybar .ubarinnerwrap .topbarico	{ color: #FFFFFF;}';
+				echo '.site .utilitybar .ubarinnerwrap .socialicons ul.social li a i.genericon { background-color: rgba(255, 255, 255, 0.2); color: #FFF; }';	
+				echo '.site .utilitybar .ubarinnerwrap .socialicons ul.social li a:hover i.genericon { background-color: rgba(255, 255, 255, 0.0); color: #FFF; }';								
+			}				
+			
 			if ($custom_css) {
-			echo "\n".'/* =============== user styling =============== */'."\n";
-			echo $custom_css;
+				echo "\n".'/* =============== user styling =============== */'."\n";
+				echo $custom_css;
 			}
 			
 			// CLOSE STYLE TAG

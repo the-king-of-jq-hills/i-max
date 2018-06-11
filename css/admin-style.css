@@ -359,3 +359,111 @@ li.customize-control {
 	text-decoration: none;
 	color: #9d0000;	
 }
+
+#accordion-section-basic > h3.accordion-section-title,
+#accordion-section-layout > h3.accordion-section-title,
+#accordion-section-social > h3.accordion-section-title,
+#accordion-section-blogpage > h3.accordion-section-title,
+#accordion-section-fonts > h3.accordion-section-title,
+#accordion-panel-slider > h3.accordion-section-title,
+#accordion-panel-rmenu > h3.accordion-section-title,
+#accordion-section-nxtopbar > h3.accordion-section-title,
+#accordion-section-nxheader > h3.accordion-section-title,
+#accordion-section-nxfooter > h3.accordion-section-title  {
+	background-color: #e57e26;
+	color: #FFF;
+}
+
+#accordion-section-basic > h3.accordion-section-title:hover,
+#accordion-section-basic > h3.accordion-section-title:focus,
+#accordion-section-layout > h3.accordion-section-title:hover,
+#accordion-section-layout > h3.accordion-section-title:focus,
+#accordion-section-social > h3.accordion-section-title:hover,
+#accordion-section-social > h3.accordion-section-title:focus,
+#accordion-section-blogpage > h3.accordion-section-title:hover,
+#accordion-section-blogpage > h3.accordion-section-title:focus,
+#accordion-section-fonts > h3.accordion-section-title:hover,
+#accordion-section-fonts > h3.accordion-section-title:focus,
+#accordion-panel-slider > h3.accordion-section-title:hover,
+#accordion-panel-slider > h3.accordion-section-title:focus,
+#accordion-panel-rmenu > h3.accordion-section-title:hover,
+#accordion-panel-rmenu > h3.accordion-section-title:focus,
+#accordion-section-nxtopbar > h3.accordion-section-title:hover,
+#accordion-section-nxtopbar > h3.accordion-section-title:focus,
+#accordion-section-nxheader > h3.accordion-section-title:hover,
+#accordion-section-nxheader > h3.accordion-section-title:focus,
+#accordion-section-nxfooter > h3.accordion-section-title:hover,
+#accordion-section-nxfooter > h3.accordion-section-title:focus {
+	background-color: #333!important;
+	color: #FFF!important;	
+}
+
+#accordion-section-basic > h3.accordion-section-title:after,
+#accordion-section-layout > h3.accordion-section-title:after,
+#accordion-section-social > h3.accordion-section-title:after,
+#accordion-section-blogpage > h3.accordion-section-title:after,
+#accordion-section-fonts > h3.accordion-section-title:after,
+#accordion-panel-slider > h3.accordion-section-title:after,
+#accordion-panel-rmenu > h3.accordion-section-title:after,
+#accordion-section-nxtopbar > h3.accordion-section-title:after,
+#accordion-section-nxheader > h3.accordion-section-title:after,
+#accordion-section-nxfooter > h3.accordion-section-title:after {
+	color: #FFF!important;	
+}
+
+#accordion-section-basic:hover > h3.accordion-section-title:after,
+#accordion-section-layout:hover > h3.accordion-section-title:after,
+#accordion-section-social:hover > h3.accordion-section-title:after,
+#accordion-section-blogpage:hover > h3.accordion-section-title:after,
+#accordion-section-fonts:hover > h3.accordion-section-title:after,
+#accordion-panel-slider:hover > h3.accordion-section-title:after,
+#accordion-panel-rmenu:hover > h3.accordion-section-title:after,
+#accordion-section-nxtopbar:hover > h3.accordion-section-title:after,
+#accordion-section-nxheader:hover > h3.accordion-section-title:after,
+#accordion-section-nxfooter:hover > h3.accordion-section-title:after {
+	color: #FFF!important;	
+}
+
+#accordion-section-nxpromo > h3.accordion-section-title  {
+	background-color: #dd6a08;
+	color: #FFF;
+}
+
+#accordion-section-nxpromo > h3.accordion-section-title:hover,
+#accordion-section-nxpromo > h3.accordion-section-title:focus {
+	background-color: #333!important;
+	color: #FFF!important;	
+}
+
+#accordion-section-nxpromo:hover > h3.accordion-section-title:after {
+	color: #FFF!important;	
+}
+
+#accordion-section-nxpromo > h3.accordion-section-title:after {
+	color: #FFF!important;	
+}
+
+#accordion-section-woocomm > h3.accordion-section-title  {
+	background-color: #96588a;
+	color: #FFF;
+}
+
+#accordion-section-woocomm > h3.accordion-section-title:hover,
+#accordion-section-woocomm > h3.accordion-section-title:focus {
+	background-color: #333!important;
+	color: #FFF!important;	
+}
+
+#accordion-section-woocomm:hover > h3.accordion-section-title:after {
+	color: #FFF!important;	
+}
+
+#accordion-section-woocomm > h3.accordion-section-title:after {
+	color: #FFF!important;	
+}
+
+#customize-control-logo_trans {
+	background-image: url("../images/logo-bg.png");
+	background-position: center;
+	background-size: cover;
+}

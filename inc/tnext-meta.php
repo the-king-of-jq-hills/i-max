@@ -105,7 +105,7 @@ function imax_register_meta_boxes( $meta_boxes )
 				'id'    => "{$prefix}other_slider",
 				// Field description (optional)
 				'desc'  => __( 'Enter a 3rd party slider shortcode, ex. meta slider, smart slider 2, wow slider, etc.', 'i-max' ),
-				'type'  => 'text',
+				'type'  => 'textarea',
 				// Default value (optional)
 				'std'   => __( '', 'i-max' ),
 				// CLONES: Add to make the field cloneable (i.e. have multiple value)
@@ -211,6 +211,77 @@ function imax_register_meta_boxes( $meta_boxes )
 				'desc' => __('Remove the spaces/padding from top and bottom of the page/post', 'i-max'),
 			),							
 			
+			// Hide page header
+			array(
+				'name' => __( 'Show Transparent Header', 'i-max' ),
+				'id'   => "{$prefix}trans_header",
+				'type' => 'checkbox',
+				// Value can be 0 or 1
+				'std'  => 0,
+				'desc' => __('Show transparent header on pages/posts. This will hide the page/post titlebar as well', 'i-max'),
+			),				
+			
+			// Hide page header
+			array(
+				'name' => __( 'Hide Page Header', 'i-max' ),
+				'id'   => "{$prefix}no_page_header",
+				'type' => 'checkbox',
+				// Value can be 0 or 1
+				'std'  => 0,
+				'desc' => __('In case you are building the page without the top navigation and logo', 'i-max'),
+			),										
+
+			// Hide page header
+			array(
+				'name' => __( 'Hide Topbar', 'i-max' ),
+				'id'   => "{$prefix}no_ubar",
+				'type' => 'checkbox',
+				// Value can be 0 or 1
+				'std'  => 0,
+				'desc' => __('Hide top bar with email, phone and social links', 'i-max'),
+			),
+			// Hide page header
+			array(
+				'name' => __( 'Hide Footer Widget Area', 'i-max' ),
+				'id'   => "{$prefix}no_footer",
+				'type' => 'checkbox',
+				// Value can be 0 or 1
+				'std'  => 0,
+				'desc' => __('Hide bottom footer widget area', 'i-max'),
+			),									
+
+			// Custom page primary color			
+			array(
+				'name'  => __( 'Custom Primary Color', 'i-max' ),
+				'id'    => "{$prefix}page_color",
+				'type'  => 'color',
+				'std'   => '',
+				'desc' => __('Choose a custom primary color for this page', 'i-max'),
+			),
+			
+			// Custom page primary color			
+			array(
+				'name'  => __( 'Topbar Background Color', 'i-max' ),
+				'id'    => "{$prefix}topbar_bg_color",
+				'type'  => 'color',
+				'std'   => '',
+				'desc' => __('Top bar with phone, email and social link background color', 'i-max'),
+			),
+			
+			/* Requires Meta Box Update 
+			array(
+				'name'  => __( 'Custom Page Logo Normal', 'i-max' ),
+				'id'    => "{$prefix}page_logo_normal",
+				'type'  => 'single_image',
+			),
+			// additional page class			
+			array(
+				'name'  => __( 'Custom Page Logo Reverse', 'i-max' ),
+				'id'    => "{$prefix}page_logo_trans",
+				'type'  => 'single_image',
+			),
+			*/				
+							
 			// additional page class			
 			array(
 				'name'  => __( 'Additional Page Class', 'i-max' ),

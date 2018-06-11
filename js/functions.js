@@ -205,17 +205,14 @@ jQuery(document).ready(function($) {
 	{			
 	
 		var slider_parallax = $('#da-slider').data('slider-parallax');
-		/*
+		
 		var slider_height = $('#da-slider').data('slider-height');
 		var slider_reduct = $('#da-slider').data('slider-reduct');		
-		*/
-		
-		var slider_height = 100;
-		var slider_reduct = 260;
+
 		slider_height = ( (($( window ).height()/100)*slider_height) - slider_reduct );
 		
 		$('.da-img').css( "height", slider_height );
-		$('.owl-carousel .owl-wrapper-outer').css( "height", slider_height );		
+		$('.ibanner .owl-carousel .owl-wrapper-outer').css( "height", slider_height );		
 		
 		if (slider_parallax == 1)
 		{		
@@ -301,6 +298,14 @@ jQuery(document).ready(function($) {
 	{
 		$('.headerwrap').addClass('noutility');
 	}
+	
+	// Title height adjustment for transparent header
+	if ( $('.nx-titlebar').length > 0 && $('.nx-fullscreen').length > 0 )
+	{
+		$('.iheader').css( "height", 180);
+		$('.titlebar').css( "paddingTop", 88);
+		
+	}		
 	
 })(jQuery);
 
