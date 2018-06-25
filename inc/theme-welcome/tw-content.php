@@ -12,13 +12,14 @@ $review_pop = array (
 
 $tx_plugins = array (
 	array(
-            'name' => __( 'TemplatesNext ToolKit (<span class="nx-red">Highly Recommended</span>)', 'i-max' ),
-            'desc' => __( 'This plugin adds all the custom post types like, portfolio, Team, Slider, Testimonials etc along with all the shortcodes. This plugin also extends the plugin “Siteorigin Pagebuilder” with its own functionalities.', 'i-max' ),
+            'name' => __( 'TemplatesNext ToolKit (<span class="nx-red">Required</span>)', 'i-max' ),
+            'desc' => __( 'This plugin adds all the custom post types like, portfolio, Team, Slider, Testimonials etc, along with all the shortcodes. This plugin also page options and few additional functionality.', 'i-max' ),
 			'pluginurl' => esc_url( 'https://wordpress.org/plugins/templatesnext-toolkit/' ),
 			'tutorial' => esc_url( 'https://www.youtube.com/watch?v=vqTHQCN2ci4' ),
 			'title' => 'TemplatesNext ToolKit',
 			'slug' => 'templatesnext-toolkit',			
 			'pluginfile' => 'tx-toolkit.php',
+			'ocdi' => 1,			
     ),
 	array(
             'name' => __( 'Breadcrumb NavXT (<span class="nx-red">Recommended</span>)', 'i-max' ),
@@ -26,7 +27,8 @@ $tx_plugins = array (
 			'pluginurl' => esc_url( 'https://wordpress.org/plugins/breadcrumb-navxt/' ),
 			'title' => 'Breadcrumb NavXT',			
 			'slug' => 'breadcrumb-navxt',
-			'pluginfile' => 'breadcrumb-navxt.php',			
+			'pluginfile' => 'breadcrumb-navxt.php',	
+			'ocdi' => 1,					
     ),
 	array(
             'name' => __( 'Contact Form 7 (<span class="nx-red">Recommended</span>)', 'i-max' ),
@@ -35,7 +37,8 @@ $tx_plugins = array (
 			'tutorial' => esc_url( 'https://www.youtube.com/watch?v=wy70WGCjMY4' ),
 			'title' => 'Contact Form 7',			
 			'slug' => 'contact-form-7',
-			'pluginfile' => 'wp-contact-form-7.php',			
+			'pluginfile' => 'wp-contact-form-7.php',
+			'ocdi' => 1,							
     ),
 	array(
             'name' => __( 'One Click Demo Import (<span class="nx-red">Optional</span>)', 'i-max' ),
@@ -43,7 +46,8 @@ $tx_plugins = array (
 			'pluginurl' => esc_url( 'https://wordpress.org/plugins/one-click-demo-import/' ),
 			'title' => 'One Click Demo Import',			
 			'slug' => 'one-click-demo-import',
-			'pluginfile' => 'one-click-demo-import.php',	
+			'pluginfile' => 'one-click-demo-import.php',
+			'ocdi' => 1,						
     ),
 	array(
             'name' => __( 'SiteOrigin PageBuilder (<span class="nx-red">Recommended</span>)', 'i-max' ),
@@ -52,7 +56,8 @@ $tx_plugins = array (
 			'tutorial' => esc_url( 'https://siteorigin.com/page-builder/documentation/' ),
 			'title' => 'Page Builder by SiteOrigin',			
 			'slug' => 'siteorigin-panels',
-			'pluginfile' => 'siteorigin-panels.php',			
+			'pluginfile' => 'siteorigin-panels.php',
+			'ocdi' => 1,							
     ),
 	array(
             'name' => __( 'SiteOrigin Widgets Bundle (<span class="nx-red">Optional</span>)', 'i-max' ),
@@ -60,7 +65,8 @@ $tx_plugins = array (
 			'pluginurl' => esc_url( 'https://wordpress.org/plugins/so-widgets-bundle/' ),
 			'title' => 'SiteOrigin Widgets Bundle',			
 			'slug' => 'so-widgets-bundle',
-			'pluginfile' => 'so-widgets-bundle.php',	
+			'pluginfile' => 'so-widgets-bundle.php',
+			'ocdi' => 1,						
     ),
 	array(
             'name' => __( 'Contact Form 7 Honeypot (<span class="nx-red">Optional</span>)', 'i-max' ),
@@ -69,7 +75,26 @@ $tx_plugins = array (
 			'title' => 'Contact Form 7 Honeypot',			
 			'slug' => 'contact-form-7-honeypot',
 			'pluginfile' => 'honeypot.php',	
-    ),		
+			'ocdi' => 1,						
+    ),
+	array(
+            'name' => __( 'Brizy Page Builder (<span class="nx-red">Optional</span>)', 'i-max' ),
+            'desc' => __( 'Drag and drop page builder with pre-built sections.', 'i-max' ),
+			'pluginurl' => esc_url( 'https://wordpress.org/plugins/brizy/' ),
+			'tutorial' => esc_url( 'https://www.youtube.com/watch?v=3sRJ0-PAuXk' ),
+			'title' => 'Brizy – Page Builder',			
+			'slug' => 'brizy',
+			'pluginfile' => 'brizy.php',
+    ),
+	array(
+            'name' => __( 'Elementor Page Builder (<span class="nx-red">Optional</span>)', 'i-max' ),
+            'desc' => __( 'Drag and drop page builder with pre-built layouts.', 'i-max' ),
+			'pluginurl' => esc_url( 'https://wordpress.org/plugins/elementor/' ),
+			'tutorial' => esc_url( 'https://www.youtube.com/watch?v=3B5HL11uhVE' ),
+			'title' => 'Elementor Page Builder',			
+			'slug' => 'elementor',
+			'pluginfile' => 'elementor.php',
+    ),			
 );
 
 $tx_faqs = array (

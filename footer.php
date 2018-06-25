@@ -7,6 +7,7 @@
  * @package  i-max
  * @since i-max 1.0
  */
+$default_copyright = 'Copyright &copy; '.get_bloginfo( 'name' ) ; 
 $no_footer = "";
 if ( function_exists( 'rwmb_meta' ) ) {
 	$no_footer = rwmb_meta('imax_no_footer');
@@ -24,7 +25,8 @@ if ( function_exists( 'rwmb_meta' ) ) {
             <?php endif; ?> 
 			<div class="site-info">
                 <div class="copyright">
-                	<?php esc_attr_e( 'Copyright &copy;', 'i-max' ); ?>  <?php bloginfo( 'name' ); ?>
+                	<?php //esc_attr_e( 'Copyright &copy;', 'i-max' ); ?>  <?php //bloginfo( 'name' ); ?>
+                    <?php echo esc_attr(get_theme_mod('copyright_text', $default_copyright )); ?>
                 </div>            
             	<div class="credit-info">
 					<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'i-max' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'i-max' ); ?>">

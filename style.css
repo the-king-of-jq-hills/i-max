@@ -3,11 +3,11 @@ Theme Name: i-max
 Theme URI: http://www.templatesnext.org/i-max/
 Author: templatesnext team
 Author URI: http://templatesnext.org/
-Description: i-max is a responsive, retina ready multipurpose WordPress theme for business, portfolio, personal or blogs. i-max is packed with many premium features like boxed/wide layout, unlimited color, custom background, multiple blog layout, social media links, custom slider and much more. i-max also comes with a plugin “TemplatesNext Toolkit” to give you power to create your own layout using rows and columns, services, multiple style of portfolio, custom blog/post/news layout, testimonial, call to act etc. it also lets you add custom recent post listing, carousel and portfolio carousels. Video tutorials available at : http://templatesnext.org/imax/?page_id=659 and https://www.youtube.com/watch?v=b0cqdFTwmm8
-Version: 1.3.1
+Description: I-MAX is a responsive, retina ready multipurpose WordPress theme for Business, WooCommerce, Portfolio, Personal or Blogs. I-MAX is favorite among developers as well as first time WordPress users. I-Max is highly flexible theme compatible with most of the popular plugins like SiteOrigin Page Builder, Brizy, Elementor, Visual Composer etc.
+Version: 1.3.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: One-Column,Two-Columns,Right-Sidebar,Custom-Colors,Custom-Menu,Featured-Image-Header,Featured-Images,Flexible-Header,Full-Width-Template,Microformats,Post-Formats,Sticky-Post,Theme-Options,Threaded-Comments,Translation-Ready,Holiday
+Tags: One-Column, Two-Columns, Right-Sidebar, Custom-Colors, Custom-Menu, Featured-Image-Header, Featured-Images, Flexible-Header, Full-Width-Template, Microformats, Post-Formats, Sticky-Post, Theme-Options, Threaded-Comments, Translation-Ready, Holiday
 Text Domain: i-max
 
 imax WordPress Theme, Copyright 2015 TemplatesNext.org
@@ -6472,4 +6472,12 @@ Menu item highlight style
 
 .tx-noubar .utilitybar {
 	display: none;
+}
+/**/
+.site-footer .widget-area .widget .widget-title {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.site-footer .widget-area .widget ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }

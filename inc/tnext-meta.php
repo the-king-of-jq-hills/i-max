@@ -55,7 +55,7 @@ function imax_register_meta_boxes( $meta_boxes )
 		'fields' => array(
 			// Hide Title
 			array(
-				'name' => __( 'Hide Title', 'i-max' ),
+				'name' => __( 'Hide Title Bar', 'i-max' ),
 				'id'   => "{$prefix}hidetitle",
 				'type' => 'checkbox',
 				// Value can be 0 or 1
@@ -113,6 +113,22 @@ function imax_register_meta_boxes( $meta_boxes )
 				'class' => 'cust-ttl',
 			),			
 			
+			array(
+				'name'            => __( 'Smart Slider 3', 'i-spirit' ),
+				'id'              => "{$prefix}smart_slider",
+				'type'            => 'select',
+				// Array of 'value' => 'Label' pairs
+				'options'         => imax_smartslider_list(),
+				// Allow to select multiple value?
+				'multiple'        => false,
+				// Placeholder text
+				'placeholder'     => __( 'Select a smart slider', 'i-spirit' ),
+				// Display "Select All / None" button?
+				'select_all_none' => false,
+				'desc' 			  => __('This option will override all the above slider options', 'nx-admin'),
+				'after'			  => '<div class="nx-ss-pro">&quot;Smart Slider 3&quot; can be downloaded from <a href="//wordpress.org/plugins/smart-slider-3/" target="_blank">WordPress repository</a>.  
+									 Professionally designed <a href="https://smartslider3.com/sample-sliders/?source=templatesnext" target="_blank">slider library</a> available with Smart Slider 3.</div>',
+			),				
 
 		)
 	);
@@ -311,3 +327,20 @@ function imax_register_meta_boxes( $meta_boxes )
 		return $category_list;
 	}	
 
+	function imax_smartslider_list () {
+		
+		global $wpdb;
+		$smartslider = array();
+		//$smartslider[0] = 'Select a slider';
+		
+		if(class_exists('SmartSlider3')) {
+			$get_sliders = $wpdb->get_results('SELECT * FROM '.$wpdb->prefix.'nextend2_smartslider3_sliders');
+			if($get_sliders) {
+				foreach($get_sliders as $slider) {
+					$smartslider[$slider->id] = $slider->title;
+				}
+			}
+		}
+		return $smartslider;
+	
+	}	

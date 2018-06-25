@@ -156,8 +156,6 @@ function imax_add_panels_and_sections( $wp_customize ) {
     ));	
 	
 	
-		
-	
     $wp_customize->add_section('social', array(
         'title'    => __('Social Links', 'i-max'),
         'description' => __('Insert full URL of your social link including http:// replacing #, <br /><b>Empty the field to hide the icon.</b>', 'i-max'),
@@ -238,7 +236,13 @@ function imax_add_panels_and_sections( $wp_customize ) {
         'title'    => __('WooCommerce Theme Options', 'i-max'),
         'description' => '',
         'priority' => 191,
-    ));						
+    ));
+	
+    $wp_customize->add_section('mmode', array(
+        'title'    => __('Coming Soon/Maintenance Mode', 'i-max'),
+        'description' => __('', 'i-max'),
+        'priority' => 192,
+    ));								
 	
 }
 
@@ -339,8 +343,8 @@ function imax_custom_setting( $controls ) {
 	$controls[] = array(
 		'type'        => 'switch',
 		'settings'     => 'boxed-icons',
-		'label'       => __( 'Boxed Menu Icons', 'i-craft' ),
-		'description' => __( 'The crat and search icons will appear as boxed', 'i-craft' ),
+		'label'       => __( 'Boxed Menu Icons', 'i-max' ),
+		'description' => __( 'The crat and search icons will appear as boxed', 'i-max' ),
 		'section'     => 'nxheader',
 		'default'     => 0,			
 		'priority'    => 4,
@@ -349,12 +353,154 @@ function imax_custom_setting( $controls ) {
 	$controls[] = array(
 		'type'        => 'switch',
 		'settings'     => 'nav_upper',
-		'label'       => __( 'Turn All Top Menu Item UPPERCASE', 'i-craft' ),
-		'description' => __( 'Turns all top navigation manu item to UPPERCASE', 'i-craft' ),
+		'label'       => __( 'Turn All Top Menu Item UPPERCASE', 'i-max' ),
+		'description' => __( 'Turns all top navigation manu item to UPPERCASE', 'i-max' ),
 		'section'     => 'nxheader',
 		'default'  => 0,		
 		'priority'    => 5,
-	);				
+	);
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'nav_font_size',
+		'label'       => __( 'Top Navigation Font size', 'i-max' ),
+		'section'     => 'nxheader',
+		'priority'    => 6,
+		'default'     => 14,
+		'choices'     => array(
+			'min'  => '12',
+			'max'  => '18',
+			'step' => '1',
+		),		
+		'output' => array(
+			array(
+				'element'  => '.nav-container li a',
+				'property' => 'font-size',
+				'units'	   => 'px',
+			),
+		),
+		
+	);	
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'nav_font_weight',
+		'label'       => __( 'Top Navigation Font Weight', 'i-max' ),
+		'section'     => 'nxheader',
+		'priority'    => 6,
+		'default'     => 400,
+		'choices'     => array(
+			'min'  => '200',
+			'max'  => '800',
+			'step' => '100',
+		),		
+		'output' => array(
+			array(
+				'element'  => '.nav-container li a',
+				'property' => 'font-weight',
+			),
+		),
+		
+	);
+	
+	
+	/* NXFooter controls */	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'copyright_text',
+        'label'    => __( 'Copyright Text', 'i-max' ),
+		'description' => __( 'Bottom footer copyright text', 'i-max' ),		
+        'section'  => 'nxfooter',
+		'default'  => __( 'Copyright &copy; ', 'i-max').get_bloginfo( 'name' ),		
+        'priority' => 1,
+    );		
+	
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_bg',
+		'label'       => __( 'Footer Widget Area Background Color', 'i-max' ),
+		'section'     => 'nxfooter',
+		'default'     => '#383838',
+		'priority'    => 2,
+		'output' => array(
+			array(
+				'element'  => '.footer-bg, .site-footer .sidebar-container',
+				'property' => 'background-color',
+			),
+		),		
+	);
+	/**/
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_title_color',
+		'label'       => __( 'Footer Widgets Title Color', 'i-max' ),
+		'section'     => 'nxfooter',
+		'default'     => '#FFFFFF',
+		'priority'    => 3,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .widget-area .widget .widget-title',
+				'property' => 'color',
+			),
+		),		
+	);		
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_text_color',
+		'label'       => __( 'Footer Widgets Text Color', 'i-max' ),
+		'section'     => 'nxfooter',
+		'default'     => '#bbbbbb',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .widget-area .widget, .site-footer .widget-area .widget li',
+				'property' => 'color',
+			),
+		),		
+	);
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_link_color',
+		'label'       => __( 'Footer Widgets Link Color', 'i-max' ),
+		'section'     => 'nxfooter',
+		'default'     => '#dddddd',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .widget-area .widget a',
+				'property' => 'color',
+			),
+		),		
+	);
+	
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'bottom_footer_bg',
+		'label'       => __( 'Bottom Footer background Color', 'i-max' ),
+		'section'     => 'nxfooter',
+		'default'     => '#272727',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer',
+				'property' => 'background-color',
+			),
+		),		
+	);
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'bottom_footer_text_color',
+		'label'       => __( 'Bottom Footer Text Color', 'i-max' ),
+		'section'     => 'nxfooter',
+		'default'     => '#777777',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .site-info, .site-footer .site-info a',
+				'property' => 'color',
+			),
+		),		
+	);			
 			
 	$controls[] = array(
 		'type'        => 'radio-image',
@@ -1039,7 +1185,87 @@ function imax_custom_setting( $controls ) {
 		'default'  	  => 0,		
 		'priority'    => 1,
 	);	
+	
+	/* Maintenance Mode */
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'mmode_status',
+		'label'       => __( 'Turn ON Maintenance Mode', 'i-max' ),
+		'description' => esc_attr__( 'Logged in admins will view a normal site.', 'i-max' ),
+		'section'     => 'mmode',
+		'default'  	  => 0,		
+		'priority'    => 1,
+	);	
 
+	$controls[] = array(
+		'label' => esc_attr__( 'Title', 'i-max'),
+		'description' => __('Maintanance mode/coming soon title', 'i-max'),
+		'settings' => 'mmode_title',
+		'default' => esc_attr__( 'Under Maintenance', 'i-max' ),
+		'class' => '',
+		'type' => 'text',
+        'section'  => 'mmode',
+		'priority'    => 2,		
+	);
+
+	$controls[] = array(
+		'label' => esc_attr__( 'Description', 'i-max'),
+		'description' => __('Maintanance mode/coming soon description', 'i-max'),
+		'settings' => 'mmode_desc',
+		'default' => esc_attr__( 'We are currently in maintenance mode. Please check back shortly.', 'i-max' ),
+		'class' => '',
+		'type' => 'textarea',
+        'section'  => 'mmode',
+		'priority'    => 3,					
+	);
+	
+	$controls[] = array(
+		'type'        => 'background',
+		'settings'    => 'mmode_bg',
+		'label'       => esc_attr__( 'Background', 'i-max' ),
+		'description' => esc_attr__( 'Background image and color', 'i-max' ),
+		'section'     => 'mmode',
+		'default'     => array(
+			'background-color'      => 'rgba(20,20,20,.8)',
+			'background-image'      => get_template_directory_uri() . '/images/bg-7.jpg',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'cover',
+			'background-attachment' => 'scroll',
+		),
+		'priority'    => 4,		
+	);	
+	
+	$controls[] = array(
+	  'type'        => 'date',
+	  'settings'    => 'mmode_days',
+	  'label'       => esc_html__( 'Date', 'i-max' ),
+	  'description' => __( 'Estimated maintanance until', 'i-max' ),
+	  'section'     => 'mmode',
+	  /*
+	  'default'     => 12,
+	  
+	  'choices'     => array(
+		'min'  => '0',
+		'max'  => '100',
+		'step' => '1',
+	  ),
+	  */	  
+	);
+	$controls[] = array(
+	  'type'        => 'slider',
+	  'settings'    => 'mmode_hours',
+	  'label'       => esc_html__( 'Hours', 'i-max' ),
+	  'description' => __( 'Estimated hours add to days', 'i-max' ),
+	  'section'     => 'mmode',
+	  'default'     => 16,
+	  'choices'     => array(
+		'min'  => '0',
+		'max'  => '24',
+		'step' => '1',
+	  ),	  
+	);	
+	
 	// promos
 	$controls[] = array(
 		'type'        => 'custom',

@@ -611,7 +611,11 @@ function imax_body_class( $classes ) {
 		
 	// Top Nav Menu Items to UPPERCASE
 	if( get_theme_mod('nav_upper', 0) == 1 )
-		$classes[] = 'nx-nav-uppercase';						
+		$classes[] = 'nx-nav-uppercase';
+
+	if ( is_page_template( 'page_full-width.php' ) ) {
+		$classes[] = 'nx-full-width';
+	}							
 
 	return $classes;
 }
@@ -727,6 +731,14 @@ include get_template_directory() . '/inc/imax-custom-style.php';
 include get_template_directory() . '/inc/woo-functions.php';
 
 /*-----------------------------------------------------------------------------------*/
+/*	Maintanance mode on
+/*-----------------------------------------------------------------------------------*/ 
+$mmode_status = get_theme_mod('mmode_status', 0);
+if($mmode_status == 1) {
+	include get_template_directory() . '/inc/m-mode/m-mode.php';
+}
+
+/*-----------------------------------------------------------------------------------*/
 /*	changing default Excerpt length 
 /*-----------------------------------------------------------------------------------*/ 
 
@@ -806,34 +818,11 @@ function imax_theme_register_required_plugins() {
     $plugins = array(
          // This is an example of how to include a plugin from a private repo in your theme.
         array(
-            'name' => 'Breadcrumb NavXT', // The plugin name.
-            'slug' => 'breadcrumb-navxt', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
             'name' => 'TemplatesNext ToolKit', // The plugin name.
             'slug' => 'templatesnext-toolkit', // The plugin slug (typically the folder name).
             'required' => false, // If false, the plugin is only 'recommended' instead of required.
         ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'One Click Demo Import', // The plugin name.
-            'slug' => 'one-click-demo-import', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'SiteOrigin PageBuilder ', // The plugin name.
-            'slug' => 'siteorigin-panels', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'SiteOrigin Widgets Bundle', // The plugin name.
-            'slug' => 'so-widgets-bundle', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),		
+		
     );
 
     /**
@@ -996,7 +985,7 @@ add_action('admin_notices', 'imax_admin_notice_005');
 function imax_admin_notice_005() {
     global $current_user ;
         $user_id = $current_user->ID;
-		$ocdi_faq = '//templatesnext.org/one-click-demo-imports-faqs/?ref=i-max';		
+		$install_plugins = 'themes.php?page=tgmpa-install-plugins';		
 		$notice_url = esc_url('https://wordpress.org/support/theme/i-max/reviews/?filter=5');
 		$about_imax = admin_url('themes.php?page=welcome-screen-about');
 		$demo_import_url = admin_url('themes.php?page=pt-one-click-demo-import');		
@@ -1004,10 +993,9 @@ function imax_admin_notice_005() {
 	
     if ( ! get_user_meta($user_id, 'imax_ignore_notice_005') ) {
         echo '<div class="updated imax-notice" style="display: none;"><p><div style="line-height: 20px;">'; 
-				printf(__('I-MAX demo layouts are available. Make sure you have installed all the recommended plugins before you start the import process. Check out One Click Demo Import <a href="%1$s">FAQs.</a><br />', 'i-max'), $ocdi_faq);        		
-				printf(__('We are looking to i-max users to share their reviews. Please take a minutes to post your review. That helps us a lot.', 'i-max'), $notice_url);
-				printf(__('<br><a href="%1$s" target="_blank" class="ad-review">Import Demo Contents And Settings</a>', 'i-max' ), $demo_import_url);	
-				printf(__('<a href="%1$s" target="_blank" class="ad-review">Post Your Review</a>', 'i-max' ), $notice_url);	
+				printf(__('Install accompanying plugin &quot;TemplatesNext Toolkit&quot; to enjoy full advantage of I-MAX.<br />', 'i-max'), $install_plugins);
+				echo esc_attr__('Use page template &quot;TX Full Width&quot; for full width layouts including pre-build page builder layouts.', 'i-max');
+				printf(__('<br><a href="%1$s" target="_blank" class="ad-review">Post Your Review</a>', 'i-max' ), $notice_url);	
 				printf(__(' <a href="%1$s" target="_blank" class="ad-review">About I-MAX</a>', 'i-max' ), $about_imax);																		
 				printf(__(' <a href="%1$s" class="tx-dismiss">Remind Later</a><div class="clear"></div>', 'i-max' ), '?imax_notice_ignore_005=0');								
         echo "</div></p></div>";

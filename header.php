@@ -183,12 +183,16 @@ if ( function_exists( 'rwmb_meta' ) ) {
 			$other_slider = rwmb_meta('imax_other_slider');
 			$custom_title = rwmb_meta('imax_customtitle');
 			$hide_breadcrumb = rwmb_meta('imax_hide_breadcrumb');
+			$smart_slider_3 = rwmb_meta('imax_smart_slider');			
 		}
 		
 		$hide_front_slider = get_theme_mod('slider_stat', 0);
 		$other_front_slider = get_theme_mod('blogslide_scode', '');
 		$itrans_slogan = esc_attr(get_theme_mod('banner_text', ''));
 		
+		if( !empty($smart_slider_3) ) {
+			$other_slider = '[smartslider3 slider='.$smart_slider_3.']';
+		}		
 		
 		$other_slider = esc_html($other_slider);
 		$other_front_slider = esc_html($other_front_slider);

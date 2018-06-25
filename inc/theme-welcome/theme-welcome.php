@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_GET['activated']) && is_admin()) {
 	set_transient( '_welcome_screen_activation_redirect', true, 30 );
 }
@@ -51,7 +50,7 @@ function welcome_screen_content() {
 	/* Urls */
 	$reviewURL = esc_url('//wordpress.org/support/theme/i-max/reviews/?filter=5');
 	$goPremiumURL = esc_url('//templatesnext.org/ispirit/landing/');
-	$videoguide = esc_url('//www.templatesnext.org/icreate/video-tutorials/');
+	$videoguide = esc_url('//www.templatesnext.org/i-max-documentations/');
 	$supportforum = esc_url('//templatesnext.org/ispirit/landing/forums/'); 
 	$toolkit = esc_url('//www.templatesnext.org/icreate/templatesnext-toolkit/');
 	$fb_page = esc_url('//www.facebook.com/templatesnext/');
@@ -79,14 +78,11 @@ function welcome_screen_content() {
                 <div class="welcome-logo"><img src="<?php echo $logo_url; ?>" alt="" class="welcome-logo-img" width="" /></div>
                 <div class="nx-info-desc">
                     <p>
-						<?php _e( 'Welcome to i-max! You are about to use one of the finest and customizable WordPress theme.', 'i-max' ); ?>
-                    </p>
-                    <p>
-                    	<a class="" href="<?php echo admin_url(); ?>themes.php?page=tgmpa-install-plugins">
-                        <?php _e( 'Install Recommended Plugins', 'i-max' ); ?>
-                        </a> 
-                        <?php _e( 'and <b>Kick start your website in one click</b>, Setup any one of our demo websites and edit/remove/add contents.', 'i-max' ); ?>
+						<?php _e( 'Blog, WooCommerce, business or personal website, I-MAX is crafted to suit all. It is favorite among developers as well as among first time WordPress users.', 'i-max' ); ?>
 					</p>
+                    <p>
+						<?php _e( 'Make sure to install accompanying plugin &quot;TemplatesNext ToolKit&quot; to activate all the features and options of this theme.', 'i-max' ); ?>
+					</p>                    
                     <a class="button button-primary button-hero" href="<?php echo $reviewURL; ?>">
                     <?php _e( 'Post Your Review', 'i-max' ); ?>
                     </a>  
@@ -99,7 +95,7 @@ function welcome_screen_content() {
                 	<div class="one-four-col">
                     	<a href="<?php echo $videoguide; ?>" target="_blank">
                             <div class="nx-dash"><span class="dashicons dashicons-video-alt2"></span></div>
-                            <h3 class="tx-admin-link"><?php _e( 'Video Guide', 'i-max' ); ?></h3>
+                            <h3 class="tx-admin-link"><?php _e( 'Documentation', 'i-max' ); ?></h3>
                         </a>
                     </div>
                 	<div class="one-four-col">
@@ -129,10 +125,13 @@ function welcome_screen_content() {
 				?>
                 <h2 class="nav-tab-wrapper">
                     <a href="?page=welcome-screen-about&tab=imax_about" class="nav-tab <?php echo $active_tab == 'imax_about' ? 'nav-tab-active' : ''; ?>">
-                   		<?php _e( 'Setting Up i-max', 'i-max' ); ?>
+                   		<?php _e( 'Setting Up I-MAX', 'i-max' ); ?>
                     </a>
+                    <a href="?page=welcome-screen-about&tab=imax_ocdi" class="nav-tab <?php echo $active_tab == 'imax_ocdi' ? 'nav-tab-active' : ''; ?>">
+                   		<?php _e( 'One Click Demo Import', 'i-max' ); ?>
+                    </a>                           
                     <a href="?page=welcome-screen-about&tab=imax_plugins" class="nav-tab <?php echo $active_tab == 'imax_plugins' ? 'nav-tab-active' : ''; ?> nx-kick">
-                    	<?php _e( 'Plugins', 'i-max' ); ?>
+                    	<?php _e( 'Recommended Plugins', 'i-max' ); ?>
                     </a>
                     <a href="?page=welcome-screen-about&tab=imax_faq" class="nav-tab <?php echo $active_tab == 'imax_faq' ? 'nav-tab-active' : ''; ?> nx-plug">
                     	<?php _e( 'FAQs/Support', 'i-max' ); ?>
@@ -145,32 +144,175 @@ function welcome_screen_content() {
 				?> 
                 	<div class="nx-tab-content">
                 		<p>&nbsp;</p>
-                        <ol>
+                        <ul class="nx-welcome">
 							<?php
 									echo '<li>';
-									_e( 'Install Plugins', 'i-max' );
-									printf( __( 'To install and activate all the recommended plugin at once, go to menu "Appearance" > "<a href="%sthemes.php?page=tgmpa-install-plugins">Install Plugins</a>".', 'i-max' ), admin_url() );
+									echo '<h3>';
+									printf( esc_html__( 'Upload Logos', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Start with uploading your logos', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=title_tagline" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Set Theme Color', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Change theme color', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=colors" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Topbar Customization', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Add your phone, email and social links or empty the fields to remove them', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=nxtopbar" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Header Customization', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Customize header, change font menu size, width, etc.', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=nxheader" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Turn ON/OFF Preloader', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Turn on or off page preloader, by default it is on', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=layout" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
 									echo '</li>';
 									
 									echo '<li>';
-									_e( 'One Click Demo Setup', 'i-max' );
-									printf( __( 'i-max comes with "<a href="%sthemes.php?page=pt-one-click-demo-import">One Click Demo Setup</a>", You can import and setup copy of any of our demo website in one click.', 'i-max' ), admin_url() );
+									echo '<h3>';
+									printf( esc_html__( 'Footer Customization', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Customize footer background, text color, etc', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=nxfooter" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';									
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Edit Theme Slider', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Adjust slider settings, edit slides, etc.', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[panel]=slider" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'WooCommerce Customization', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Adjust WooCommerce Settings', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=woocomm" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Set Fonts', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Choose your fonts', 'i-max' ) );
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=fonts" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
 									echo '</li>';
 									
 									echo '<li>';
-									_e( 'Start Customizing', 'i-max' );
-									printf( __( 'To start setting up your theme go to menu "Appearance" > "<a href="%scustomize.php">Customize</a>".', 'i-max' ), admin_url() );
+									echo '<h3>';
+									printf( esc_html__( 'Choose Your Plugins', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'I-ONE supports most of the popular plugins. We have listed some of the popular plugins with high ratings. ', 'i-max' ) );
+									printf( esc_html__( 'It is not neccssery to install and activate all the plugins recommendded. ', 'i-max' ) );
+									printf( esc_html__( 'You need the correct set of plugins suiteable for your job.', 'i-max' ) );																		
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%sthemes.php?page=welcome-screen-about&tab=imax_plugins" target="_blank">Install Plugins</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
+									echo '</li>';
+									
+									echo '<li>';
+									echo '<h3>';
+									printf( esc_html__( 'Activate Maintenance/Coming Soon  Mode', 'i-max' ));
+									echo '</h3>';
+									printf( esc_html__( 'Maintenance mode for visitors. If you are logged in admin, use different browser to preview the maintenance mode.', 'i-max' ) );
+									printf( esc_html__( 'Logged in admins will view a normal site so that they can work on it.', 'i-max' ) );										
+									echo '<div class="nx-customizer-link">';
+									printf( __( '<a href="%scustomize.php?autofocus[section]=mmode" target="_blank">Customizer Option</a>', 'i-max' ), admin_url() );
+									echo '</div>';								
 									echo '</li>';								
                             ?>                    
-                        </ol>
+                        </ul>
                         <span style="font-size: 13px;"><?php _e( 'Page Builder Tutorials : ', 'i-max' ); ?><a href="<?php echo $pb_tutorial; ?>" target="_blank"><?php echo $pb_tutorial; ?></a></span>
         			</div>
+				<?php		
+					} elseif ( $active_tab == 'imax_ocdi' ) {
+				?>     
+                	<div class="nx-tab-content"> 
+                		<p>&nbsp;</p>
+                        <p style="font-weight: 600; color: #272727;">
+                            <?php _e( 'Following plugins were used while creating the &quot;One Click Demo&quot;s. <br>Once you are done with installing and activating the plugins go to', 'i-max' ); ?>
+                            <a class="" href="<?php echo admin_url(); ?>themes.php?page=pt-one-click-demo-import">
+                            <?php _e( 'I-MAX Demo Setup', 'i-max' ); ?>
+                            </a>                             
+                        </p>                       
+                        <ol>
+							<?php
+			
+								foreach ($tx_plugins as $plugin) {
+									
+									$pluginLocation = rawurlencode($plugin['slug'].'/'.$plugin['pluginfile']);
+									$pluginLink = imax_plugin_activation( $pluginLocation, $plugin['slug'], $plugin['pluginfile'] );
+									$nonce_install = imax_plugin_install($plugin['slug']);
+															
+									if (!empty($plugin['ocdi']))
+									{
+										echo '<li><b>'.$plugin['title'].'</b><br />';
+										echo $plugin['desc'].'<br />';
+										$pluginTitle = $plugin['title'];
+										if ( is_plugin_active( $plugin['slug'].'/'.$plugin['pluginfile'] ) ) {
+											echo '<a href="#" class="button disabled">' . __( 'Plugin installed and active', 'i-max' ) . '</a>';  
+										} elseif( imax_is_plugin_installed($pluginTitle) == false )
+										{
+											echo '<a data-slug="' . $plugin['slug'] . '" data-active-lebel="' . __( 'Installing...', 'i-max' ) . '" class="install-now button" href="' . esc_url( $nonce_install ) . '" data-name="' . $plugin['slug'] . '" aria-label="Install ' . $plugin['slug'] . '">' . __( 'Install and activate', 'i-max' ) . '</a>';
+										} else
+										{
+											echo '<a class="button activate-now button-primary" data-active-lebel="' . __( 'Activating...', 'i-max' ) . '" data-slug="' . $plugin['slug'] . '" href="' . esc_url( $pluginLink ) . '" aria-label="Activate ' . $plugin['slug'] . '">Activate</a>';
+										}
+										echo '</li>';
+									}
+									
+								}
+                            ?>                    
+                        </ol>
+        			</div>       
+                                            
 				<?php		
 					} elseif ( $active_tab == 'imax_plugins' )
 					{
 				?>     
                 	<div class="nx-tab-content"> 
                 		<p>&nbsp;</p>
+                        <p style="font-weight: 500; color: #272727;">
+                            <?php _e( 'I-MAX is created using core WordPress theme as framework, most of the WordPress plugin should run flowlessly with I-MAX, We have listed few useful plugins bellow, so that you can install them with a click.', 'i-max' ); ?>
+                        </p>                        
                         <ol>
 							<?php
 			
