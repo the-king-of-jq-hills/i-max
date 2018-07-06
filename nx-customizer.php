@@ -403,6 +403,15 @@ function imax_custom_setting( $controls ) {
 		
 	);
 	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'trans-header',
+		'label'       => __( 'Home Page Transparent Header', 'i-max' ),
+		'description' => __( 'Transparent floating header for home page, Individual pages has their own options.', 'i-max' ),
+		'section'     => 'nxheader',
+		'default'     => 0,
+		'priority'    => 4,
+	);	
 	
 	/* NXFooter controls */	
     $controls[] = array(
@@ -748,7 +757,7 @@ function imax_custom_setting( $controls ) {
         'settings'  => 'itrans_slide1_linkurl',
         'label'    => __( 'Slide1 Link URL', 'i-max' ),
         'section'  => 'slide1',
-        'default'  => 'https://wordpress.org/',
+        'default'  => esc_url('http://templatesnext.org/ispirit/landing/?ref=im-slide'),
         'priority' => 1,
     );
 	$controls[] = array(
@@ -756,7 +765,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide1_image',
 		'label'       => __( 'Slide1 Image', 'i-max' ),
         'section'  	  => 'slide1',
-		'default'     => get_template_directory_uri() . '/images/slide1.jpg',
+		'default'     => esc_url(get_template_directory_uri() . '/images/slide1.jpg'),
 		'priority'    => 1,
 	);							
 	
@@ -791,7 +800,7 @@ function imax_custom_setting( $controls ) {
         'settings'  => 'itrans_slide2_linkurl',
         'label'    => __( 'Slide2 Link URL', 'i-max' ),
         'section'  => 'slide2',
-        'default'  => 'https://wordpress.org/',
+        'default'  => esc_url('http://templatesnext.org/ispirit/landing/?ref=im-slide'),
         'priority' => 1,
     );
 	$controls[] = array(
@@ -799,7 +808,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide2_image',
 		'label'       => __( 'Slide2 Image', 'i-max' ),
         'section'  	  => 'slide2',
-		'default'     => get_template_directory_uri() . '/images/slide2.jpg',
+		'default'     => esc_url(get_template_directory_uri() . '/images/slide2.jpg'),
 		'priority'    => 1,
 	);							
 		
@@ -834,7 +843,7 @@ function imax_custom_setting( $controls ) {
         'settings'  => 'itrans_slide3_linkurl',
         'label'    => __( 'Slide3 Link URL', 'i-max' ),
         'section'  => 'slide3',
-        'default'  => 'https://wordpress.org/',
+        'default'  => esc_url('https://wordpress.org/'),
         'priority' => 1,
     );
 	$controls[] = array(
@@ -842,7 +851,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide3_image',
 		'label'       => __( 'Slide3 Image', 'i-max' ),
         'section'  	  => 'slide3',
-		'default'     => get_template_directory_uri() . '/images/slide3.jpg',
+		'default'     => esc_url(get_template_directory_uri() . '/images/slide3.jpg'),
 		'priority'    => 1,
 	);							
 	
@@ -877,7 +886,7 @@ function imax_custom_setting( $controls ) {
         'settings'  => 'itrans_slide4_linkurl',
         'label'    => __( 'Slide4 Link URL', 'i-max' ),
         'section'  => 'slide4',
-        'default'  => 'https://wordpress.org/',
+        'default'  => esc_url('https://wordpress.org/'),
         'priority' => 1,
     );
 	$controls[] = array(
@@ -885,7 +894,7 @@ function imax_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide4_image',
 		'label'       => __( 'Slide4 Image', 'i-max' ),
         'section'  	  => 'slide4',
-		'default'     => get_template_directory_uri() . '/images/slide4.jpg',
+		'default'     => esc_url(get_template_directory_uri() . '/images/slide4.jpg'),
 		'priority'    => 1,
 	);
 	

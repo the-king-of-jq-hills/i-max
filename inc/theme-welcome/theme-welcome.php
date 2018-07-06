@@ -44,6 +44,7 @@ function welcome_screen_content() {
 	include get_template_directory() . '/inc/theme-welcome/tw-functions.php';	
 	
 	$logo_url = get_template_directory_uri() . '/inc/theme-welcome/i-max-welcome.jpg';
+	$page_settings_image_url = get_template_directory_uri() . '/inc/theme-welcome/images/page-settings.gif';	
 	$img_url = get_template_directory_uri() . '/inc/theme-welcome/images/';
 	$active_tab = 'imax_about';
 	
@@ -260,7 +261,10 @@ function welcome_screen_content() {
 									echo '</li>';								
                             ?>                    
                         </ul>
-                        <span style="font-size: 13px;"><?php _e( 'Page Builder Tutorials : ', 'i-max' ); ?><a href="<?php echo $pb_tutorial; ?>" target="_blank"><?php echo $pb_tutorial; ?></a></span>
+                        <?php
+							echo 'Ideal page settings for page builder layouts : ';
+							echo '<img style="border: 4px solid #bbbbbb; margin-top: 12px;" src="'.$page_settings_image_url.'" alt="" />';
+                        ?>
         			</div>
 				<?php		
 					} elseif ( $active_tab == 'imax_ocdi' ) {

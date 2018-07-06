@@ -494,11 +494,13 @@ li.customize-control {
 	line-height: 1;
 }
 
-#postbox-container-2.postbox-container .postbox button.handlediv span.toggle-indicator:before {
+.post-type-page #postbox-container-2.postbox-container .postbox button.handlediv span.toggle-indicator:before,
+.post-type-post #postbox-container-2.postbox-container .postbox button.handlediv span.toggle-indicator:before {
 	color: #FFF;
 }
 
-#postbox-container-2.postbox-container .postbox h2.hndle {
+.post-type-page #postbox-container-2.postbox-container .postbox h2.hndle,
+.post-type-post #postbox-container-2.postbox-container .postbox h2.hndle {
 	background-color: #008ec2;
 	color: #FFFFFF;
 }

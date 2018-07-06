@@ -573,7 +573,8 @@ function imax_body_class( $classes ) {
 		$imax_no_ubar = rwmb_meta('imax_no_ubar');
 		$imax_trans_header = rwmb_meta('imax_trans_header');		
 	}
-		
+	$home_header_type = get_theme_mod('trans-header', 0);
+	
 	if ( ! is_multi_author() )
 		$classes[] = 'single-author';
 
@@ -602,7 +603,7 @@ function imax_body_class( $classes ) {
 	if( $imax_no_ubar == 1 )
 		$classes[] = 'tx-noubar';
 		
-	if( $imax_trans_header == 1 )
+	if( $imax_trans_header == 1 || ( is_home() && $home_header_type == 1 ) )
 		$classes[] = 'nx-fullscreen';
 		
 	// Boxed Navigation Icons
@@ -786,7 +787,7 @@ function imax_remove_wc_breadcrumbs() {
 
 /**
  * Add a stylesheet for admin panels
- * @since i-spirit 1.0
+ * @since i-max 1.0
  */
 add_action('admin_init', 'imax_admin_css');
 function imax_admin_css() {
@@ -988,15 +989,17 @@ function imax_admin_notice_005() {
 		$install_plugins = 'themes.php?page=tgmpa-install-plugins';		
 		$notice_url = esc_url('https://wordpress.org/support/theme/i-max/reviews/?filter=5');
 		$about_imax = admin_url('themes.php?page=welcome-screen-about');
-		$demo_import_url = admin_url('themes.php?page=pt-one-click-demo-import');		
+		$demo_import_url = admin_url('themes.php?page=pt-one-click-demo-import');
+		$live_demo_url = esc_url('//templatesnext.org/i-max/?ref=imax-dn');		
         /* Check that the user hasn't already clicked to ignore the message */
 	
     if ( ! get_user_meta($user_id, 'imax_ignore_notice_005') ) {
         echo '<div class="updated imax-notice" style="display: none;"><p><div style="line-height: 20px;">'; 
 				printf(__('Install accompanying plugin &quot;TemplatesNext Toolkit&quot; to enjoy full advantage of I-MAX.<br />', 'i-max'), $install_plugins);
-				echo esc_attr__('Use page template &quot;TX Full Width&quot; for full width layouts including pre-build page builder layouts.', 'i-max');
+				echo esc_attr__('Use page template &quot;TX Full Width&quot; for pre-build page builder layouts.', 'i-max');
 				printf(__('<br><a href="%1$s" target="_blank" class="ad-review">Post Your Review</a>', 'i-max' ), $notice_url);	
-				printf(__(' <a href="%1$s" target="_blank" class="ad-review">About I-MAX</a>', 'i-max' ), $about_imax);																		
+				printf(__(' <a href="%1$s" target="_blank" class="ad-review">About I-MAX</a>', 'i-max' ), $about_imax);	
+				printf(__(' <a href="%1$s" target="_blank" class="ad-review">I-MAX Live Demos</a>', 'i-max' ), $live_demo_url);																						
 				printf(__(' <a href="%1$s" class="tx-dismiss">Remind Later</a><div class="clear"></div>', 'i-max' ), '?imax_notice_ignore_005=0');								
         echo "</div></p></div>";
     }

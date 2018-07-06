@@ -175,7 +175,7 @@ if ( function_exists( 'rwmb_meta' ) ) {
         <!-- #Banner -->
         <?php
 		
-		$hide_title = $show_slider = $other_slider = $custom_title = $hide_breadcrumb = "";
+		$hide_title = $show_slider = $other_slider = $custom_title = $hide_breadcrumb = $smart_slider_3 = "";
 		
 		if ( function_exists( 'rwmb_meta' ) ) {
 			$hide_title = rwmb_meta('imax_hidetitle');
@@ -190,7 +190,7 @@ if ( function_exists( 'rwmb_meta' ) ) {
 		$other_front_slider = get_theme_mod('blogslide_scode', '');
 		$itrans_slogan = esc_attr(get_theme_mod('banner_text', ''));
 		
-		if( !empty($smart_slider_3) ) {
+		if( $smart_slider_3 ) {
 			$other_slider = '[smartslider3 slider='.$smart_slider_3.']';
 		}		
 		

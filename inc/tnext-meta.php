@@ -57,44 +57,33 @@ function imax_register_meta_boxes( $meta_boxes )
 			array(
 				'name' => __( 'Hide Title Bar', 'i-max' ),
 				'id'   => "{$prefix}hidetitle",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'class' => 'hide-ttl',
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),
 			array(
 				'name' => __( 'Show Default i-max Slider', 'i-max' ),
 				'id'   => "{$prefix}show_slider",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'class' => 'show-slider',
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),			
-			/*		
-			// Custom Title
-			array(
-				// Field name - Will be used as label
-				'name'  => __( 'Custom title', 'i-max' ),
-				// Field ID, i.e. the meta key
-				'id'    => "{$prefix}customtitle",
-				// Field description (optional)
-				'desc'  => __( 'Enter custom title for the page', 'i-max' ),
-				'type'  => 'text',
-				// Default value (optional)
-				'std'   => __( '', 'i-max' ),
-				// CLONES: Add to make the field cloneable (i.e. have multiple value)
-				//'clone' => true,
-				'class' => 'cust-ttl',
-			),
-			*/
 			
 			// hide breadcrum
 			array(
 				'name' => __( 'Hide breadcrumb', 'i-max' ),
 				'id'   => "{$prefix}hide_breadcrumb",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),
 			
 			// Custom Title
@@ -114,7 +103,7 @@ function imax_register_meta_boxes( $meta_boxes )
 			),			
 			
 			array(
-				'name'            => __( 'Smart Slider 3', 'i-spirit' ),
+				'name'            => __( 'Smart Slider 3', 'i-max' ),
 				'id'              => "{$prefix}smart_slider",
 				'type'            => 'select',
 				// Array of 'value' => 'Label' pairs
@@ -122,12 +111,11 @@ function imax_register_meta_boxes( $meta_boxes )
 				// Allow to select multiple value?
 				'multiple'        => false,
 				// Placeholder text
-				'placeholder'     => __( 'Select a smart slider', 'i-spirit' ),
+				'placeholder'     => __( 'Select a smart slider', 'i-max' ),
 				// Display "Select All / None" button?
 				'select_all_none' => false,
-				'desc' 			  => __('This option will override all the above slider options', 'nx-admin'),
-				'after'			  => '<div class="nx-ss-pro">&quot;Smart Slider 3&quot; can be downloaded from <a href="//wordpress.org/plugins/smart-slider-3/" target="_blank">WordPress repository</a>.  
-									 Professionally designed <a href="https://smartslider3.com/sample-sliders/?source=templatesnext" target="_blank">slider library</a> available with Smart Slider 3.</div>',
+				'desc' 			  => __('This option will override all the above slider options', 'i-max'),
+				'after'			  => imax_smartslider_after(),
 			),				
 
 		)
@@ -141,7 +129,7 @@ function imax_register_meta_boxes( $meta_boxes )
 		'id' => 'portfoliometa',
 
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title' => __( 'Portfolio Meta', 'i-max' ),
+		'title' => __( 'Portfolio Options', 'i-max' ),
 
 		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
 		'pages' => array( 'portfolio' ),
@@ -189,7 +177,7 @@ function imax_register_meta_boxes( $meta_boxes )
 		'id' => 'miscellaneous',
 
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title' => __( 'Miscellaneous Meta', 'i-max' ),
+		'title' => __( 'Other Page Options', 'i-max' ),
 
 		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
 		'pages' => array( 'post', 'page', 'portfolio', 'team', 'product' ),
@@ -210,7 +198,7 @@ function imax_register_meta_boxes( $meta_boxes )
 			array(
 				'name' => __( 'Show Alternate Main Navigation', 'i-max' ),
 				'id'   => "{$prefix}alt_navigation",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('Turn on the alternate main navigation', 'i-max'),
@@ -221,49 +209,59 @@ function imax_register_meta_boxes( $meta_boxes )
 			array(
 				'name' => __( 'Remove Top and Bottom Padding/Margin', 'i-max' ),
 				'id'   => "{$prefix}page_nopad",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('Remove the spaces/padding from top and bottom of the page/post', 'i-max'),
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),							
 			
 			// Hide page header
 			array(
 				'name' => __( 'Show Transparent Header', 'i-max' ),
 				'id'   => "{$prefix}trans_header",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('Show transparent header on pages/posts. This will hide the page/post titlebar as well', 'i-max'),
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),				
 			
 			// Hide page header
 			array(
 				'name' => __( 'Hide Page Header', 'i-max' ),
 				'id'   => "{$prefix}no_page_header",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('In case you are building the page without the top navigation and logo', 'i-max'),
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),										
 
 			// Hide page header
 			array(
 				'name' => __( 'Hide Topbar', 'i-max' ),
 				'id'   => "{$prefix}no_ubar",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('Hide top bar with email, phone and social links', 'i-max'),
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),
 			// Hide page header
 			array(
 				'name' => __( 'Hide Footer Widget Area', 'i-max' ),
 				'id'   => "{$prefix}no_footer",
-				'type' => 'checkbox',
+				'type' => 'switch',
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('Hide bottom footer widget area', 'i-max'),
+				'on_label'  => esc_attr__('Yes', 'i-max'),
+				'off_label' => esc_attr__('No', 'i-max'),					
 			),									
 
 			// Custom page primary color			
@@ -342,5 +340,25 @@ function imax_register_meta_boxes( $meta_boxes )
 			}
 		}
 		return $smartslider;
+	
+	}
+	
+	function imax_smartslider_after () {
+		
+		$smartslider_html = '';
+		
+		$smartslider_html .= '<div class="nx-ss-pro">';
+		$smartslider_html .= esc_attr__('&quot;Smart Slider 3&quot; can be downloaded from ', 'i-max');
+		$smartslider_html .= '<a href="'.esc_url('//wordpress.org/plugins/smart-slider-3/').'" target="_blank">';
+		$smartslider_html .= esc_attr__('WordPress repository', 'i-max');
+		$smartslider_html .= '</a>. ';
+		$smartslider_html .= esc_attr__('Professionally designed ', 'i-max');
+		$smartslider_html .= '<a href="'.esc_url('//smartslider3.com/sample-sliders/?source=templatesnext').'" target="_blank">';
+		$smartslider_html .= esc_attr__('slider library', 'i-max');
+		$smartslider_html .= '</a> ';
+		$smartslider_html .= esc_attr__('available with Smart Slider 3.', 'i-max');
+		$smartslider_html .= '</div>';
+		
+		return $smartslider_html;
 	
 	}	

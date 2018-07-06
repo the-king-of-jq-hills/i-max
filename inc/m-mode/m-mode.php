@@ -1,6 +1,6 @@
 <?php
 
-function icraft_mmode_enqueue_scripts() {
+function imax_mmode_enqueue_scripts() {
 	
 	if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {	
 	
@@ -55,16 +55,16 @@ function icraft_mmode_enqueue_scripts() {
 			wp_localize_script( 'm-mode-script', 'mmode', $mmode_options );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'icraft_mmode_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'imax_mmode_enqueue_scripts' );
 
 /*-----------------------------------------------------------------------------------*/	
 /* maintanance mode */
 /*-----------------------------------------------------------------------------------*/	
-if ( ! function_exists( 'icraft_maintenance_mode' ) ) {
-	function icraft_maintenance_mode( ) {
+if ( ! function_exists( 'imax_maintenance_mode' ) ) {
+	function imax_maintenance_mode( ) {
 		
 		$mmode_status = get_theme_mod('mmode_status', 0);
-		$icraft_logo = get_theme_mod( 'logo_trans', '' );
+		$imax_logo = get_theme_mod( 'logo_trans', '' );
 		
 		$mmode_date = get_theme_mod('mmode_days', '');
 		$mmode_hours = get_theme_mod('mmode_hours', 16);		
@@ -77,8 +77,8 @@ if ( ! function_exists( 'icraft_maintenance_mode' ) ) {
 		$maintenance_html .= '<div id="mmode" class="mmode-outerwrap"><div class="mmode-container">';
 		$maintenance_html .= '<div class="mmode-inner">';
 		
-		if( $icraft_logo ) {
-			$maintenance_mode_logo = '<div class="mm-logo-box"><img src="'.esc_url($icraft_logo).'" alt="'. esc_attr( get_bloginfo( 'name', 'display' ) ).'" style="max-width: 240px;" /></div>';
+		if( $imax_logo ) {
+			$maintenance_mode_logo = '<div class="mm-logo-box"><img src="'.esc_url($imax_logo).'" alt="'. esc_attr( get_bloginfo( 'name', 'display' ) ).'" style="max-width: 240px;" /></div>';
 		} else {
 			$maintenance_mode_logo .= '<div class="mm-logo-box"><h1>'.esc_attr( get_bloginfo( 'name', 'display' ) ).'</h1></div>';
 			$maintenance_mode_logo .= '<div class="mm-logo-box"><h3>'.esc_attr( get_bloginfo( 'description', 'display' ) ).'</h3></div>';
@@ -88,7 +88,7 @@ if ( ! function_exists( 'icraft_maintenance_mode' ) ) {
 		$maintenance_html .= '<h1>'.esc_html(get_theme_mod('mmode_title', esc_attr__( 'Under Maintenance', 'i-max' ))).'</h1>';
 		$maintenance_html .= '<p>'.esc_html(get_theme_mod('mmode_desc', esc_attr__( 'We are currently in maintenance mode. Please check back shortly.', 'i-max' ))).'</p>';
 		
-		if( !empty(get_theme_mod('mmode_days')) ) {
+		if( $mmode_date ) {
 			$maintenance_html .= '<div class="mm-clock-wrap"><div class="mm-clock"></div></div>';
 		}
 		
@@ -96,18 +96,18 @@ if ( ! function_exists( 'icraft_maintenance_mode' ) ) {
 		$maintenance_html .= '</div></div></div>';
 		/*hrml ends */
 		
-		if($mmode_status == 1) {
+		if( $mmode_status == 1 ) {
 			if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {				
 				echo $maintenance_html;
 			}			
 		}
 	}
-	add_action('wp_footer', 'icraft_maintenance_mode');
+	add_action('wp_footer', 'imax_maintenance_mode');
 }	
 
 
-add_action('admin_notices', 'icraft_admin_notice_mmode');
-function icraft_admin_notice_mmode() {
+add_action('admin_notices', 'imax_admin_notice_mmode');
+function imax_admin_notice_mmode() {
 
 	$mmode_status = get_theme_mod('mmode_status', 0);
     

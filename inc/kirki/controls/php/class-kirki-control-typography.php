@@ -73,7 +73,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 
 		<div class="wrapper">
 
-			<# if ( ! _.isUndefined( data.default['font-family'] ) ) { #>
+			<# if ( data.default['font-family'] ) { #>
 				<# data.value['font-family'] = data.value['font-family'] || data['default']['font-family']; #>
 				<# if ( data.choices['fonts'] ) { data.fonts = data.choices['fonts']; } #>
 				<div class="font-family">
@@ -92,15 +92,9 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 						<select {{{ data.inputAttrs }}} class="variant" id="kirki-typography-variant-{{{ data.id }}}"></select>
 					</div>
 				<# } #>
-				<div class="kirki-host-font-locally">
-					<label>
-						<input type="checkbox">
-						<?php esc_html_e( 'Download font-family to server instead of using the Google CDN.', 'i-max' ); ?>
-					</label>
-				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['font-size'] ) ) { #>
+			<# if ( data.default['font-size'] ) { #>
 				<# data.value['font-size'] = data.value['font-size'] || data['default']['font-size']; #>
 				<div class="font-size">
 					<h5><?php esc_attr_e( 'Font Size', 'i-max' ); ?></h5>
@@ -108,7 +102,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['line-height'] ) ) { #>
+			<# if ( data.default['line-height'] ) { #>
 				<# data.value['line-height'] = data.value['line-height'] || data['default']['line-height']; #>
 				<div class="line-height">
 					<h5><?php esc_attr_e( 'Line Height', 'i-max' ); ?></h5>
@@ -116,7 +110,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['letter-spacing'] ) ) { #>
+			<# if ( data.default['letter-spacing'] ) { #>
 				<# data.value['letter-spacing'] = data.value['letter-spacing'] || data['default']['letter-spacing']; #>
 				<div class="letter-spacing">
 					<h5><?php esc_attr_e( 'Letter Spacing', 'i-max' ); ?></h5>
@@ -124,7 +118,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['word-spacing'] ) ) { #>
+			<# if ( data.default['word-spacing'] ) { #>
 				<# data.value['word-spacing'] = data.value['word-spacing'] || data['default']['word-spacing']; #>
 				<div class="word-spacing">
 					<h5><?php esc_attr_e( 'Word Spacing', 'i-max' ); ?></h5>
@@ -132,7 +126,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['text-align'] ) ) { #>
+			<# if ( data.default['text-align'] ) { #>
 				<# data.value['text-align'] = data.value['text-align'] || data['default']['text-align']; #>
 				<div class="text-align">
 					<h5><?php esc_attr_e( 'Text Align', 'i-max' ); ?></h5>
@@ -171,12 +165,11 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['text-transform'] ) ) { #>
+			<# if ( data.default['text-transform'] ) { #>
 				<# data.value['text-transform'] = data.value['text-transform'] || data['default']['text-transform']; #>
 				<div class="text-transform">
 					<h5><?php esc_attr_e( 'Text Transform', 'i-max' ); ?></h5>
 					<select {{{ data.inputAttrs }}} id="kirki-typography-text-transform-{{{ data.id }}}">
-						<option value=""<# if ( '' === data.value['text-transform'] ) { #>selected<# } #>></option>
 						<option value="none"<# if ( 'none' === data.value['text-transform'] ) { #>selected<# } #>><?php esc_attr_e( 'None', 'i-max' ); ?></option>
 						<option value="capitalize"<# if ( 'capitalize' === data.value['text-transform'] ) { #>selected<# } #>><?php esc_attr_e( 'Capitalize', 'i-max' ); ?></option>
 						<option value="uppercase"<# if ( 'uppercase' === data.value['text-transform'] ) { #>selected<# } #>><?php esc_attr_e( 'Uppercase', 'i-max' ); ?></option>
@@ -187,12 +180,11 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['text-decoration'] ) ) { #>
+			<# if ( data.default['text-decoration'] ) { #>
 				<# data.value['text-decoration'] = data.value['text-decoration'] || data['default']['text-decoration']; #>
 				<div class="text-decoration">
 					<h5><?php esc_attr_e( 'Text Decoration', 'i-max' ); ?></h5>
 					<select {{{ data.inputAttrs }}} id="kirki-typography-text-decoration-{{{ data.id }}}">
-						<option value=""<# if ( '' === data.value['text-decoration'] ) { #>selected<# } #>></option>
 						<option value="none"<# if ( 'none' === data.value['text-decoration'] ) { #>selected<# } #>><?php esc_attr_e( 'None', 'i-max' ); ?></option>
 						<option value="underline"<# if ( 'underline' === data.value['text-decoration'] ) { #>selected<# } #>><?php esc_attr_e( 'Underline', 'i-max' ); ?></option>
 						<option value="overline"<# if ( 'overline' === data.value['text-decoration'] ) { #>selected<# } #>><?php esc_attr_e( 'Overline', 'i-max' ); ?></option>
@@ -203,7 +195,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['margin-top'] ) ) { #>
+			<# if ( data.default['margin-top'] ) { #>
 				<# data.value['margin-top'] = data.value['margin-top'] || data['default']['margin-top']; #>
 				<div class="margin-top">
 					<h5><?php esc_attr_e( 'Margin Top', 'i-max' ); ?></h5>
@@ -211,7 +203,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['margin-bottom'] ) ) { #>
+			<# if ( data.default['margin-bottom'] ) { #>
 				<# data.value['margin-bottom'] = data.value['margin-bottom'] || data['default']['margin-bottom']; #>
 				<div class="margin-bottom">
 					<h5><?php esc_attr_e( 'Margin Bottom', 'i-max' ); ?></h5>
@@ -219,7 +211,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				</div>
 			<# } #>
 
-			<# if ( ! _.isUndefined( data.default['color'] ) && false !== data.default['color'] ) { #>
+			<# if ( false !== data.default['color'] && data.default['color'] ) { #>
 				<# data.value['color'] = data.value['color'] || data['default']['color']; #>
 				<div class="color">
 					<h5><?php esc_attr_e( 'Color', 'i-max' ); ?></h5>

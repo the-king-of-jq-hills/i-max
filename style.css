@@ -4,10 +4,10 @@ Theme URI: http://www.templatesnext.org/i-max/
 Author: templatesnext team
 Author URI: http://templatesnext.org/
 Description: I-MAX is a responsive, retina ready multipurpose WordPress theme for Business, WooCommerce, Portfolio, Personal or Blogs. I-MAX is favorite among developers as well as first time WordPress users. I-Max is highly flexible theme compatible with most of the popular plugins like SiteOrigin Page Builder, Brizy, Elementor, Visual Composer etc.
-Version: 1.3.2
+Version: 1.3.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: One-Column, Two-Columns, Right-Sidebar, Custom-Colors, Custom-Menu, Featured-Image-Header, Featured-Images, Flexible-Header, Full-Width-Template, Microformats, Post-Formats, Sticky-Post, Theme-Options, Threaded-Comments, Translation-Ready, Holiday
+Tags: one-column, news, blog, two-columns, rtl-language-support, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
 Text Domain: i-max
 
 imax WordPress Theme, Copyright 2015 TemplatesNext.org
@@ -4814,11 +4814,11 @@ nav.navigation .nav-links a:visited {
 
 .ibanner.nxs-shadow .nx-slider .nx-slider-container p,
 .ibanner.nxs-shadow .nx-slider .nx-slider-container h2 {
-	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 .ibanner.nxs-shadow .nx-slider .nx-slider-container p {
-	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 .ibanner.nxs-pattern .nx-slider .da-img:after {
@@ -6480,4 +6480,8 @@ Menu item highlight style
 
 .site-footer .widget-area .widget ul li {
     border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.product-category.product mark.count {
+	display: none;
 }

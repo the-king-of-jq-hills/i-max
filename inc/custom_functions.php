@@ -57,14 +57,14 @@ function imax_ibanner_slider () {
             'itrans_slide_title' => esc_attr__( '<span class="themecolor">Drag & Drop</span> Ready Layouts', 'i-max' ),
             'itrans_slide_desc' => esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-max' ),
             'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-max' ),
-            'itrans_slide_linkurl' => esc_url('http://www.templatesnext.org/icreate/?page_id=541'),
+            'itrans_slide_linkurl' => esc_url('http://www.templatesnext.org/icreate/?page_id=541&amp;ref=im-slide'),
             'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide1.jpg' ),
         ),
         array(
             'itrans_slide_title' => esc_attr__( 'SiteOrigin Page Builder & Elementor', 'i-max' ),
             'itrans_slide_desc' => esc_attr__( 'Design Your Pages With Most Popular Page Builders', 'i-max' ),
             'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-max' ),
-            'itrans_slide_linkurl' => '',
+            'itrans_slide_linkurl' => 'http://templatesnext.org/ispirit/landing/?ref=im-slide',
             'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide2.jpg' ),
         ),
         array(
