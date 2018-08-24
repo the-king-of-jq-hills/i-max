@@ -79,7 +79,7 @@ function welcome_screen_content() {
                 <div class="welcome-logo"><img src="<?php echo $logo_url; ?>" alt="" class="welcome-logo-img" width="" /></div>
                 <div class="nx-info-desc">
                     <p>
-						<?php _e( 'Blog, WooCommerce, business or personal website, I-MAX is crafted to suit all. It is favorite among developers as well as among first time WordPress users.', 'i-max' ); ?>
+						<?php _e( 'Blog, WooCommerce, business or personal website, I-MAX is crafted to suit all. It is favorite among developers as well as among first time WordPress users. I-MAX is RTL ready.', 'i-max' ); ?>
 					</p>
                     <p>
 						<?php _e( 'Make sure to install accompanying plugin &quot;TemplatesNext ToolKit&quot; to activate all the features and options of this theme.', 'i-max' ); ?>
@@ -128,6 +128,9 @@ function welcome_screen_content() {
                     <a href="?page=welcome-screen-about&tab=imax_about" class="nav-tab <?php echo $active_tab == 'imax_about' ? 'nav-tab-active' : ''; ?>">
                    		<?php _e( 'Setting Up I-MAX', 'i-max' ); ?>
                     </a>
+                    <a href="?page=welcome-screen-about&tab=imax_pro" class="nav-tab <?php echo $active_tab == 'imax_pro' ? 'nav-tab-active' : ''; ?> nx-plug">
+                    	<?php _e( 'Go Premium', 'i-max' ); ?>
+                    </a>                    
                     <a href="?page=welcome-screen-about&tab=imax_ocdi" class="nav-tab <?php echo $active_tab == 'imax_ocdi' ? 'nav-tab-active' : ''; ?>">
                    		<?php _e( 'One Click Demo Import', 'i-max' ); ?>
                     </a>                           
@@ -369,6 +372,123 @@ function welcome_screen_content() {
         			</div>      
                         
 				<?php	
+					} elseif ( $active_tab == 'imax_pro' ) {
+				?>     
+                	<div class="nx-tab-content"> 
+                		<p>&nbsp;</p>
+                        <p class="go-pro-desc">	
+							<?php esc_attr_e( 'We have only one premium theme I-SPIRIT, and it combines all the features of other free themes plus several additional premium features.', 'i-max'); ?>
+                        	<?php esc_attr_e( 'With only one premium theme I-SPIRIT we have ensured that you receive maximum quality, support and regular updates.', 'i-max'); ?> 
+                        </p>
+                        <p>&nbsp;</p>
+                        <div class="nx-price-table">
+                        	<div class="nx-pt-row th-title">
+                            	<div class="nx-pt-cell"></div>
+                            	<div class="nx-pt-cell"><span class="th-name"><?php esc_attr_e( 'I-MAX', 'i-max'); ?></span></div>
+                            	<div class="nx-pt-cell"><span class="th-name"><?php esc_attr_e( 'I-SPIRIT', 'i-max'); ?></span></div>
+                                <div class="nx-pt-cell"><span class="th-name"><?php esc_attr_e( 'I-SPIRIT', 'i-max'); ?></span><span class="th-variation"><?php esc_attr_e( 'Developers Version', 'i-max'); ?></span></div>
+                            </div>
+                        	<div class="nx-pt-row th-price">
+                            	<div class="nx-pt-cell"></div>
+                            	<div class="nx-pt-cell"><span class="th-price"><?php esc_attr_e( 'FREE', 'i-max'); ?></span></div>
+                            	<div class="nx-pt-cell"><span class="th-price"><?php esc_attr_e( '$48 USD', 'i-max'); ?></span><span class="th-usage"><?php esc_attr_e( 'Single Website', 'i-max'); ?></span></div>
+                                <div class="nx-pt-cell"><span class="th-price"><?php esc_attr_e( '$320 USD', 'i-max'); ?></span><span class="th-usage"><?php esc_attr_e( 'Unlimited Websites', 'i-max'); ?></span></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Page Preloader', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Maintenance Mode', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Updates', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Lifetime', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Lifetime', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'Lifetime', 'i-max'); ?></div>
+                            </div>                            
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Google Fonts', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Top 20', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'All', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'All', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Shortcodes', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( '18+', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( '65+', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( '65+', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Header Style', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( '2', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( '6', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( '6', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'WooCommerce Ready', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>  
+                            
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'RTL Ready', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Translation Ready', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Slider Revolution', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'NO', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-iteme">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'WPBakery Page Builder', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'NO', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>                            
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'White Label', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'NO', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Premium Support', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'NO', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'Custom Header', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'NO', 'i-max'); ?></div>
+                            	<div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                                <div class="nx-pt-cell"><?php esc_attr_e( 'YES', 'i-max'); ?></div>
+                            </div>   
+                        	<div class="nx-pt-row th-item">
+                            	<div class="nx-pt-cell"></div>
+                            	<div class="nx-pt-cell"></div>
+                            	<div class="nx-pt-cell"><a href="<?php echo $goPremiumURL; ?>" target="_blank" class="button button-primary button-hero th-price-button"><?php esc_attr_e( 'More Details', 'i-max'); ?></a></div>
+                                <div class="nx-pt-cell"><a href="<?php echo $goPremiumURL; ?>" target="_blank" class="button button-primary button-hero th-price-button"><?php esc_attr_e( 'More Details', 'i-max'); ?></a></div>
+                            </div>                                                                                                                                                                                                    
+                        </div>
+        			</div>      
+                        
+				<?php
 					}
 				?>
   
